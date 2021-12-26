@@ -164,9 +164,38 @@ function callSendAPI(sender_psid, response) {
     });
 }
 
+let setupProfile = (req, res) => {
+    //call facebook API 
+    let request_body = {
+        "get_started": "GET_STARTED",
+        "whitelisted_domains": "https://chatbotbacsivanlang.herokuapp.com/",
+
+    }
+
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+        "qs": {
+            "access_token": PAGE_ACCESS_TOKEN
+        },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+            console.log('Setup User ProFILE success!')
+        } else {
+            console.error("Unable to send message:" + err);
+        }
+    });
+
+
+}
+
 module.exports = {
     getHomepage: getHomepage, //key : value
     postWebhook: postWebhook,
     getWebhook: getWebhook,
+    setupProfile: setupProfile,
+
 
 }
