@@ -5,7 +5,7 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 let getHomepage = (req, res) => {
-    return res.send("Xin chao");
+    return res.render('homepage.ejs');
 
 };
 
