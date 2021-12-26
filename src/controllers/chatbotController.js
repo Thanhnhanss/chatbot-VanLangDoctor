@@ -136,6 +136,8 @@ function handlePostback(sender_psid, received_postback) {
         response = {
             "text": "Xin chào mừng bạn abc đến với trang tư vấn sức khoẻ của VLU"
         }
+    }
+
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
 }
@@ -173,7 +175,7 @@ let setupProfile = async (req, res) => {
         "get_started": {
             "payload": "GET_STARTED"
         },
-        "whitelisted_domains":[ "https://chatbotbacsivanlang.herokuapp.com/"],
+        "whitelisted_domains": ["https://chatbotbacsivanlang.herokuapp.com/"],
 
     }
 
@@ -203,6 +205,4 @@ module.exports = {
     postWebhook: postWebhook,
     getWebhook: getWebhook,
     setupProfile: setupProfile,
-
-
 }
