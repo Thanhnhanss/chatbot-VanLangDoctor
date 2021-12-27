@@ -81,7 +81,7 @@ function handleMessage(sender_psid, received_message) {
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = {
-            "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
+            "text": `Chào bạn abc cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
         }
     } else if (received_message.attachments) {
         // Get the URL of the message attachment
@@ -97,12 +97,12 @@ function handleMessage(sender_psid, received_message) {
                         "image_url": attachment_url,
                         "buttons": [{
                                 "type": "postback",
-                                "title": "Yes!",
+                                "title": "Đúng rồi",
                                 "payload": "yes",
                             },
                             {
                                 "type": "postback",
-                                "title": "No!",
+                                "title": "Không phải",
                                 "payload": "no",
                             }
                         ],
@@ -130,12 +130,12 @@ function handlePostback(sender_psid, received_postback) {
         }
     } else if (payload === 'no') {
         response = {
-            "text": "Oops, try sending another image."
+            "text": "Lỗi, hãy gửi lại!"
         }
     } else if (payload === "GET_STARTED") {
         response = {
-            "text": "Xin chào mừng bạn abc đến với trang tư vấn sức khoẻ của VLU"
-        }
+            "text": "Xin chào mừng bạn abc đến với trang tư vấn sức khoẻ VanLangDoctor"
+        } 
     }
 
     // Send the message to acknowledge the postback
