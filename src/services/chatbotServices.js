@@ -5,7 +5,7 @@ import request from "request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-let callSendAPI = () => {
+let callSendAPI = (sender_psid, response) => {
     let request_body = {
         "recipient": {
             "id": sender_psid
