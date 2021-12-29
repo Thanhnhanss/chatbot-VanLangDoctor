@@ -33,7 +33,7 @@ let callSendAPI = (sender_psid, response) => {
 let handleGetStarted = () => {
     return new Promise(async (resolve, reject) => {
         try {
-            response = {
+            let response = {
                 "text": "Xin chào bạn ABCD đã đến với website Bác sĩ Văn Lang"
             }
             await callSendAPI(response);
