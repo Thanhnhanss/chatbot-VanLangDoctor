@@ -1,3 +1,6 @@
+import {
+    response
+} from "express";
 import request from "request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
@@ -33,7 +36,7 @@ let handleGetStarted = () => {
             response = {
                 "text": "Xin chào bạn ABCD đã đến với website Bác sĩ Văn Lang"
             }
-            await callSendAPI
+            await callSendAPI(response);
             resolve('done');
 
         } catch (e) {
