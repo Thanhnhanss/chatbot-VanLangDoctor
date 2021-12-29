@@ -1,5 +1,6 @@
 require("dotenv").config();
 import request from "request";
+import chatbotService from "../services/chatbotServices";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
@@ -117,12 +118,12 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
+async function handlePostback(sender_psid, received_postback) {
     let response;
 
     // Get the payload for the postback
     let payload = received_postback.payload;
-   
+
     // Set the response based on the postback payload
     switch (payload) {
         case 'yes':
@@ -136,9 +137,7 @@ function handlePostback(sender_psid, received_postback) {
             }
             break;
         case "GET_STARTED":
-            response = {
-                "text": "Xin chào bạn ABCD đã đến với website Bác sĩ Văn Lang"
-            }
+            await chatbotService.handleGetStarted();
             break;
         default:
             response = {
@@ -146,8 +145,8 @@ function handlePostback(sender_psid, received_postback) {
             }
     }
 
-    // Send the message to acknowledge the postback
-    callSendAPI(sender_psid, response);
+    // // Send the message to acknowledge the postback
+    // callSendAPI(sender_psid, response);
 }
 
 // Sends response messages via the Send API
