@@ -122,6 +122,8 @@ function handlePostback(sender_psid, received_postback) {
 
     // Get the payload for the postback
     let payload = received_postback.payload;
+   
+    // Set the response based on the postback payload
     switch (payload) {
         case 'yes':
             response = {
@@ -135,27 +137,13 @@ function handlePostback(sender_psid, received_postback) {
             break;
         case "GET_STARTED":
             response = {
-                "text": "Xin chào bạn đã đến với website Bác sĩ Văn Lang"
+                "text": "Xin chào bạn ABCD đã đến với website Bác sĩ Văn Lang"
             }
             break;
         default:
             response = {
                 "text": `oop~! I don't know response with posrback ${payload}`
             }
-    }
-    // Set the response based on the postback payload
-    if (payload === 'yes') {
-        response = {
-            "text": "Cảm ơn bạn!"
-        }
-    } else if (payload === 'no') {
-        response = {
-            "text": "Lỗi, hãy gửi lại!"
-        }
-    } else if (payload === "GET_STARTED") {
-        response = {
-            "text": "Xin chào mừng bạn abc đến với trang tư vấn sức khoẻ VanLangDoctor"
-        }
     }
 
     // Send the message to acknowledge the postback
