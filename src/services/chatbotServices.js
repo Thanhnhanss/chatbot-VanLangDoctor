@@ -30,13 +30,13 @@ let callSendAPI = (sender_psid, response) => {
     });
 }
 
-let handleGetStarted = () => {
+let handleGetStarted = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
             let response = {
                 "text": "Xin chào bạn ABCD đã đến với website Bác sĩ Văn Lang"
             }
-            await callSendAPI(response);
+            await callSendAPI(sender_psid, response);
             resolve('done');
 
         } catch (e) {
