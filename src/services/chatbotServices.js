@@ -34,7 +34,7 @@ let callSendAPI = (sender_psid, response) => {
 };
 
 let getUserName = async (sender_psid) => {
-    let username = "";
+    let username = '';
 
     // Send the HTTP request to the Messenger Platform
     await request({
@@ -62,7 +62,7 @@ let handleGetStarted = (sender_psid) => {
         try {
             let username = await getUserName(sender_psid);
             let response = {
-                text: `Xin chào bạn ${username} đã đến với website Bác sĩ Văn Lang`,
+                "text": `Xin chào bạn ${username} đã đến với website Bác sĩ Văn Lang`,
             };
             await callSendAPI(sender_psid, response);
             resolve("done");
