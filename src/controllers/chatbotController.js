@@ -142,6 +142,9 @@ async function handlePostback(sender_psid, received_postback) {
         case "GET_STARTED":
             await chatbotService.handleGetStarted(sender_psid);
             break;
+        case "THEM_DV":
+            await chatbotService.handleSendTHEMDV(sender_psid);
+            break;
         default:
             response = {
                 "text": `oop~! I don't know response with posrback ${payload}`

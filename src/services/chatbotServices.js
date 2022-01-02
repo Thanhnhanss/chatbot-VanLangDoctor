@@ -113,7 +113,74 @@ let sendGetstartedTemplate = () => {
     return response;
 }
 
+let handleSendTHEMDV = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let username = await getThemDV(sender_psid);
+            let response1 = {
+                "text": `Xin chào bạn ${username} đã đến với website Bác sĩ Văn Lang`,
+            };
+            await callSendAPI(sender_psid, response1);
+            resolve("done");
+        } catch (e) {
+            reject(e);
+        }
+    });
 
+}
+
+let getThemDV = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                        "title": "Dịch vụ của chúng tôi",
+                        "subtitle": "Cảm ơn bạn đã ghé thăm, chúng tôi cung cấp những dịch vụ về tư vấn sức khoẻ cộng đồng",
+                        "image_url": IMAGE_GET_STARTED,
+                        "buttons": [{
+                                "type": "postback",
+                                "title": "ĐẶT LỊCH KHÁM",
+                                "payload": "DAT_LICH",
+                            },
+                            {
+                                "type": "postback",
+                                "title": "TƯ VẤN ONLINE",
+                                "payload": "TUVAN_ONL",
+                            },
+                        ],
+                    },
+                    {
+                        "title": "Dịch vụ khám bệnh của VanLangDoctor",
+                        "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
+                        "image_url": IMAGE_GET_STARTED,
+                        "buttons": [{
+                            "type": "postback",
+                            "title": "ĐẶT LỊCH KHÁM",
+                            "payload": "DAT_LICH",
+                        }, ],
+                    },
+                    {
+                        "title": "Không gian phòng khám của Bác sĩ Văn Lang",
+                        "subtitle": "Cung cấp dịch vụ chăm sóc sức khỏe hiện đại – tiên tiến nhất, chúng tôi cam kết mang đến cho bạn và gia đình phương pháp tiếp cận toàn diện cho một cuộc sống khỏe mạnh hơn.",
+                        "image_url": IMAGE_GET_STARTED,
+                        "buttons": [{
+                            "type": "postback",
+                            "title": "CHI TIẾT",
+                            "payload": "CHI_TIET",
+                        }, ],
+                    },
+
+                ]
+            }
+        }
+    }
+    return response;
+}
 module.exports = {
     handleGetStarted: handleGetStarted,
+    handleSendTHEMDV: handleSendTHEMDV,
+
+
 };
