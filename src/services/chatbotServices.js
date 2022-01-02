@@ -116,10 +116,7 @@ let sendGetstartedTemplate = () => {
 let handleSendTHEMDV = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let username = await getThemDV(sender_psid);
-            let response1 = {
-                "text": `Xin chào bạn ${username} đã đến với website Bác sĩ Văn Lang`,
-            };
+            let response1 = await getThemDV(sender_psid);
             await callSendAPI(sender_psid, response1);
             resolve("done");
         } catch (e) {
@@ -167,6 +164,7 @@ let getThemDV = () => {
                         "image_url": IMAGE_GET_STARTED,
                         "buttons": [{
                             "type": "postback",
+
                             "title": "CHI TIẾT",
                             "payload": "CHI_TIET",
                         }, ],
