@@ -6,6 +6,10 @@ import request from "request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const IMAGE_GET_STARTED = 'https://bit.ly/IMG_TMP';
+const IMAGE_GET_STARTED1 = 'https://bit.ly/IMG_DV1';
+
+const IMAGE_GET_STARTED2 = 'https://bit.ly/IMG_DV2';
+const IMAGE_GET_STARTED3 = 'https://bit.ly/IMG_DV3';
 
 
 let callSendAPI = (sender_psid, response) => {
@@ -135,7 +139,7 @@ let getThemDV = () => {
                 "elements": [{
                         "title": "Dịch vụ của chúng tôi",
                         "subtitle": "Cảm ơn bạn đã ghé thăm, chúng tôi cung cấp những dịch vụ về tư vấn sức khoẻ cộng đồng",
-                        "image_url": IMAGE_GET_STARTED,
+                        "image_url": IMAGE_GET_STARTED1,
                         "buttons": [{
                                 "type": "postback",
                                 "title": "ĐẶT LỊCH KHÁM",
@@ -151,7 +155,7 @@ let getThemDV = () => {
                     {
                         "title": "Dịch vụ khám bệnh của VanLangDoctor",
                         "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
-                        "image_url": IMAGE_GET_STARTED,
+                        "image_url": IMAGE_GET_STARTED2,
                         "buttons": [{
                             "type": "postback",
                             "title": "ĐẶT LỊCH KHÁM",
@@ -161,7 +165,7 @@ let getThemDV = () => {
                     {
                         "title": "Không gian phòng khám của Bác sĩ Văn Lang",
                         "subtitle": "Cung cấp dịch vụ chăm sóc sức khỏe hiện đại – tiên tiến nhất, chúng tôi cam kết mang đến cho bạn và gia đình phương pháp tiếp cận toàn diện cho một cuộc sống khỏe mạnh hơn.",
-                        "image_url": IMAGE_GET_STARTED,
+                        "image_url": IMAGE_GET_STARTED3,
                         "buttons": [{
                             "type": "postback",
 
