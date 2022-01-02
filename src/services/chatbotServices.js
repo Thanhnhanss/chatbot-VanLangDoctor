@@ -99,7 +99,8 @@ let sendGetstartedTemplate = () => {
                             "type": "postback",
                             "title": "THÊM DỊCH VỤ",
                             "payload": "THEM_DV",
-                        } {
+                        },
+                        {
                             "type": "postback",
                             "title": "HƯỚNG DẪN",
                             "payload": "HUONG_DAN",
