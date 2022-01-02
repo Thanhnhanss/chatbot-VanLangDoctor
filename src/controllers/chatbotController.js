@@ -207,9 +207,52 @@ let setupProfile = async (req, res) => {
 
 }
 
+let setupPresistentMenu = async (req, res) => {
+    let request_body = {
+        "persistent_menu": [{
+            "locale": "default",
+            "composer_input_disabled": false,
+            "call_to_actions": [{
+                    "type": "web_url",
+                    "title": "Facebook page VLU",
+                    "url": "https://www.facebook.com/B%C3%A1c-s%C4%A9-V%C4%83n-Lang-109866731562751/?ref=pages_you_manage",
+                    "webview_height_ratio": "full"
+                },
+                {
+                    "type": "postback",
+                    "title": "Khởi động lại bot",
+                    "payload": "RESTART_BOT"
+                },
+            ]
+        }]
+    }
+    // Send the HTTP request to the Messenger Platform
+    await request({
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+        "qs": {
+            "access_token": PAGE_ACCESS_TOKEN
+        },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        console.log(body)
+        if (!err) {
+            console.log('Setup Presistent menu success!')
+        } else {
+            console.error("Unable  Presistent menu message:" + err);
+        }
+    });
+
+    return res.send("Setup  Presistent menu success!");
+}
+
+
+
 module.exports = {
     getHomepage: getHomepage, //key : value
     postWebhook: postWebhook,
     getWebhook: getWebhook,
     setupProfile: setupProfile,
+    setupPresistentMenu: setupPresistentMenu,
+
 }
