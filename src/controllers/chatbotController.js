@@ -145,6 +145,18 @@ async function handlePostback(sender_psid, received_postback) {
         case "THEM_DV":
             await chatbotService.handleSendTHEMDV(sender_psid);
             break;
+        case "TUVAN_ONL":
+            await chatbotService.handleTUVAN_ONL(sender_psid);
+            break;
+        case "DAT_LICH":
+            await chatbotService.handleDAT_LICH(sender_psid);
+            break;
+        case "CHUAN_DOAN":
+            await chatbotService.handleCHUAN_DOAN(sender_psid);
+            break;
+        case "DAT_LICH1":
+            await chatbotService.handleDAT_LICH1(sender_psid);
+            break;
         default:
             response = {
                 "text": `oop~! I don't know response with posrback ${payload}`

@@ -180,9 +180,74 @@ let getThemDV = () => {
     }
     return response;
 }
+
+let handleTUVAN_ONL = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response1 = await getTuvan_ONL(sender_psid);
+            await callSendAPI(sender_psid, response1);
+            resolve("done");
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
+
+let getTuvan_ONL = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                        "title": "Tư vấn sức khoẻ online",
+                        "subtitle": "Chúng tôi luôn sẵn sàng lắng nghe những chia sẻ về sức khoẻ của bạn",
+                        "image_url": IMAGE_GET_STARTED4,
+                        "buttons": [{
+                                "type": "postback",
+                                "title": "ĐẶT LỊCH KHÁM",
+                                "payload": "DAT_LICH",
+                            },
+                            {
+                                "type": "postback",
+                                "title": "TƯ VẤN NGAY",
+                                "payload": "TUVAN_ONL",
+                            },
+                        ],
+                    },
+                    {
+                        "title": "Chuẩn đoán bệnh online",
+                        "subtitle": "Dựa vào những triệu chứng mà bạn chia sẻ chúng tôi sẽ đưa ra những kết luận phù hợp nhất",
+                        "image_url": IMAGE_GET_STARTED5,
+                        "buttons": [{
+                            "type": "postback",
+                            "title": "CHI TIẾT",
+                            "payload": "CHUAN_DOAN",
+                        }, ],
+                    },
+                    {
+                        "title": "Đặt lịch tại phòng khám VLMC",
+                        "subtitle": "Là cơ sở y tế mới nhất với các trang thiết bị hiện đại do trường Đại học Văn Lang thành lập năm 2021.",
+                        "image_url": IMAGE_GET_STARTED6,
+                        "buttons": [{
+                            "type": "postback",
+
+                            "title": "CHI TIET",
+                            "payload": "DAT_LICH1",
+                        }, ],
+                    },
+
+                ]
+            }
+        }
+    }
+    return response;
+}
+
 module.exports = {
     handleGetStarted: handleGetStarted,
     handleSendTHEMDV: handleSendTHEMDV,
+    handleTUVAN_ONL: handleTUVAN_ONL,
 
 
 };
