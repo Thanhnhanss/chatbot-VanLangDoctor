@@ -8,7 +8,7 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const IMAGE_GET_STARTED = 'https://bit.ly/IMG_TMP';
 const IMAGE_GET_STARTED1 = 'https://bit.ly/IMG_DV1';
 
-const IMAGE_GET_STARTED2 = 'https://bit.ly/IMG_DV2';
+const IMAGE_GET_STARTED2 = 'https://bit.ly/IMG_DV2-1';
 const IMAGE_GET_STARTED3 = 'https://bit.ly/IMG_DV3';
 const IMAGE_GET_STARTED4 = 'https://bit.ly/IMG_DV4-1';
 const IMAGE_GET_STARTED5 = 'https://bit.ly/IMG_DV5';
@@ -214,7 +214,7 @@ let getTuvan_ONL = () => {
                             },
                             {
                                 "type": "postback",
-                                "title": "TƯ VẤN NGAY",
+                                "title": "THÔNG TIN THÊM",
                                 "payload": "TUVAN_ONL",
                             },
                         ],
@@ -236,8 +236,8 @@ let getTuvan_ONL = () => {
                         "buttons": [{
                             "type": "postback",
 
-                            "title": "CHI TIET",
-                            "payload": "DAT_LICH1",
+                            "title": "ĐẶT LỊCH",
+                            "payload": "DAT_LICH",
                         }, ],
                     },
 

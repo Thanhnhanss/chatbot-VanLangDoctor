@@ -154,9 +154,6 @@ async function handlePostback(sender_psid, received_postback) {
         case "CHUAN_DOAN":
             await chatbotService.handleCHUAN_DOAN(sender_psid);
             break;
-        case "DAT_LICH1":
-            await chatbotService.handleDAT_LICH1(sender_psid);
-            break;
         default:
             response = {
                 "text": `oop~! I don't know response with posrback ${payload}`
