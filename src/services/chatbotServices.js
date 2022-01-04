@@ -10,6 +10,10 @@ const IMAGE_GET_STARTED1 = 'https://bit.ly/IMG_DV1';
 
 const IMAGE_GET_STARTED2 = 'https://bit.ly/IMG_DV2';
 const IMAGE_GET_STARTED3 = 'https://bit.ly/IMG_DV3';
+const IMAGE_GET_STARTED4 = 'https://bit.ly/IMG_DV4-1';
+const IMAGE_GET_STARTED5 = 'https://bit.ly/IMG_DV5';
+const IMAGE_GET_STARTED6 = 'https://bit.ly/IMG_DV6';
+const IMAGE_GET_STARTED7 = 'https://bit.ly/IMG_DV7';
 
 
 let callSendAPI = (sender_psid, response) => {

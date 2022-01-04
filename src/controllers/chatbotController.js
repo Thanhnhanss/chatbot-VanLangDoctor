@@ -82,7 +82,7 @@ function handleMessage(sender_psid, received_message) {
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = {
-            "text": `Chào bạn abc cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
+            "text": `Chào bạn ${sender_psid} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
         }
     } else if (received_message.attachments) {
         // Get the URL of the message attachment
@@ -93,7 +93,7 @@ function handleMessage(sender_psid, received_message) {
                 "payload": {
                     "template_type": "generic",
                     "elements": [{
-                        "title": "Is this the right picture?",
+                        "title": "Đây là thông tin của bạn phải không?",
                         "subtitle": "Tap a button to answer.",
                         "image_url": attachment_url,
                         "buttons": [{
