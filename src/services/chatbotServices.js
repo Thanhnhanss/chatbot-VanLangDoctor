@@ -6,7 +6,7 @@ import request from "request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const IMAGE_GET_STARTED = 'https://bit.ly/IMG_TMP';
-const IMAGE_GET_STARTED1 = 'https://bit.ly/IMG_DV1';
+const IMAGE_GET_STARTED1 = 'https://bit.ly/IMG_DV1-1';
 
 const IMAGE_GET_STARTED2 = 'https://bit.ly/IMG_DV2-1';
 const IMAGE_GET_STARTED3 = 'https://bit.ly/IMG_DV3';
