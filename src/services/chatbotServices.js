@@ -208,16 +208,10 @@ let getTuvan_ONL = () => {
                         "subtitle": "Chúng tôi luôn sẵn sàng lắng nghe những chia sẻ về sức khoẻ của bạn",
                         "image_url": IMAGE_GET_STARTED4,
                         "buttons": [{
-                                "type": "postback",
-                                "title": "ĐẶT LỊCH KHÁM",
-                                "payload": "DAT_LICH",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "THÔNG TIN THÊM",
-                                "payload": "TUVAN_ONL",
-                            },
-                        ],
+                            "type": "postback",
+                            "title": "THÔNG TIN THÊM",
+                            "payload": "TUVAN_ONL",
+                        }, ],
                     },
                     {
                         "title": "Chuẩn đoán bệnh online",
@@ -238,6 +232,16 @@ let getTuvan_ONL = () => {
 
                             "title": "ĐẶT LỊCH",
                             "payload": "DAT_LICH",
+                        }, ],
+                    },
+                    {
+                        "title": "Quay lại lúc đầu",
+                        "subtitle": "Trong tình hình dịch bệnh covid 19 diễn biến phức tạp, tư vấn onl đem lại cho bạn sự an tâm tuyệt đối",
+                        "image_url": IMAGE_GET_STARTED7,
+                        "buttons": [{
+                            "type": "postback",
+                            "title": "TRỞ LẠI",
+                            "payload": "QUAY_LAI",
                         }, ],
                     },
 

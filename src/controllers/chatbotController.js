@@ -76,13 +76,14 @@ let postWebhook = (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
     let response;
-
+    let username = await getUserName(sender_psid);
     // Checks if the message contains text
     if (received_message.text) {
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = {
-            "text": `Chào bạn ${sender_psid} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
+            
+            "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
         }
     } else if (received_message.attachments) {
         // Get the URL of the message attachment
@@ -154,6 +155,8 @@ async function handlePostback(sender_psid, received_postback) {
         case "CHUAN_DOAN":
             await chatbotService.handleCHUAN_DOAN(sender_psid);
             break;
+        case "QUAY_LAI":
+            await chatbotService.handleQUAY_LAI(sender_psid);
         default:
             response = {
                 "text": `oop~! I don't know response with posrback ${payload}`
