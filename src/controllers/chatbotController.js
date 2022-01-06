@@ -106,6 +106,8 @@ async function handleMessage(sender_psid, received_message) {
             }
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
+        
+        else
         response = {
             
             "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
