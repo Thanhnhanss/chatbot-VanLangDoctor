@@ -1,9 +1,16 @@
 require("dotenv").config();
 import request from "request";
+import {
+    Wit
+} from "node-wit";
 import chatbotService from "../services/chatbotServices";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+const MY_TOKEN = process.env.MY_TOKEN;
+const client = new Wit({
+    accessToken: MY_TOKEN
+});
 
 let getHomepage = (req, res) => {
     return res.render('homepage.ejs');
@@ -103,6 +110,8 @@ async function handleMessage(sender_psid, received_message) {
 
     // check greeting is here and is confident
     const thanks = firstTrait(received_message.nlp, 'wit$thanks');
+    const witDemo = await client.message('Hello');
+    callSendAPI(sender_psid, witDemo);
     if (thanks) {
         // sendResponse('Hi there!');
         callSendAPI(sender_psid, {
