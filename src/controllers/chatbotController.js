@@ -72,6 +72,27 @@ let postWebhook = (req, res) => {
     }
 };
 
+//GetUserName
+let getUserName = (sender_psid) => {
+    return new Promise((resolve, reject) => {
+        request({
+                "uri": `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name,profile_pic&access_token=${PAGE_ACCESS_TOKEN}`,
+                "method": "GET",
+            },
+            (err, res, body) => {
+                console.log(body);
+                if (!err) {
+                    body = JSON.parse(body);
+                    let username = `${body.last_name} ${body.first_name}`;
+                    resolve(username);
+                } else {
+                    console.error("Unable to send message:" + err);
+                    reject(err);
+                }
+            }
+        );
+    })
+};
 
 // Handles messages events
 async function handleMessage(sender_psid, received_message) {
