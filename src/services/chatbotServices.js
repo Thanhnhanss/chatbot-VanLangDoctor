@@ -234,16 +234,7 @@ let getTuvan_ONL = () => {
                             "payload": "DAT_LICH",
                         }, ],
                     },
-                    {
-                        "title": "Quay lại lúc đầu",
-                        "subtitle": "Trong tình hình dịch bệnh covid 19 diễn biến phức tạp, tư vấn onl đem lại cho bạn sự an tâm tuyệt đối",
-                        "image_url": IMAGE_GET_STARTED7,
-                        "buttons": [{
-                            "type": "postback",
-                            "title": "TRỞ LẠI",
-                            "payload": "QUAY_LAI",
-                        }, ],
-                    },
+                
 
                 ]
             }
