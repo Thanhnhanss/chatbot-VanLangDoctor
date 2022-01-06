@@ -74,7 +74,7 @@ let postWebhook = (req, res) => {
 
 
 // Handles messages events
-function handleMessage(sender_psid, received_message) {
+async function handleMessage(sender_psid, received_message) {
     let response;
     let username = await getUserName(sender_psid);
     // Checks if the message contains text
