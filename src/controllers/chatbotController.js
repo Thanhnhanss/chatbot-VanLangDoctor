@@ -111,7 +111,7 @@ async function handleMessage(sender_psid, received_message) {
     // check greeting is here and is confident
     const thanks = firstTrait(received_message.nlp, 'wit$thanks');
     const witDemo = await client.message('Hello');
-    callSendAPI(sender_psid, witDemo);
+    callSendAPI(sender_psid, JSON.stringify(witDemo));
     if (thanks) {
         // sendResponse('Hi there!');
         callSendAPI(sender_psid, {
