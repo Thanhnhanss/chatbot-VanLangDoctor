@@ -100,6 +100,10 @@ async function handleMessage(sender_psid, received_message) {
     let username = await getUserName(sender_psid);
     // Checks if the message contains text
     if (received_message.text) {
+        if (received_message.text == 'ho sốt')
+            response = {
+                "text": "bạn đã test covid chưa?"
+            }
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = {
