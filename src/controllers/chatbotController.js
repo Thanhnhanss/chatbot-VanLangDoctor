@@ -102,11 +102,11 @@ function firstTrait(nlp, name) {
 async function handleMessage(sender_psid, received_message) {
 
     // check greeting is here and is confident
-    const greeting = firstTrait(received_message.nlp, 'wit$greetings');
-    if (greeting) {
+    const thanks = firstTrait(received_message.nlp, 'wit$thanks');
+    if (thanks) {
         // sendResponse('Hi there!');
         callSendAPI(sender_psid, {
-            "text": "hi" + greeting.confidence
+            "text": "thanks " + thanks.confidence
         });
     } else {
         // default logic
