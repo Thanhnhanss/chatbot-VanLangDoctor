@@ -95,54 +95,70 @@ let getUserName = (sender_psid) => {
 };
 
 // Handles messages events
+function firstTrait(nlp, name) {
+    return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
+}
+
 async function handleMessage(sender_psid, received_message) {
-    let response;
-    let username = await getUserName(sender_psid);
-    // Checks if the message contains text
-    if (received_message.text) {
-        if (received_message.text == 'ho sốt')
-            response = {
-                "text": "bạn đã test covid chưa?"
-            }
-        // Create the payload for a basic text message, which
-        // will be added to the body of our request to the Send API
-        
-        else
-        response = {
-            
-            "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
-        }
-    } else if (received_message.attachments) {
-        // Get the URL of the message attachment
-        let attachment_url = received_message.attachments[0].payload.url;
-        response = {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "Đây là thông tin của bạn phải không?",
-                        "subtitle": "Tap a button to answer.",
-                        "image_url": attachment_url,
-                        "buttons": [{
-                                "type": "postback",
-                                "title": "Đúng rồi",
-                                "payload": "yes",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Không phải",
-                                "payload": "no",
-                            }
-                        ],
-                    }]
-                }
-            }
-        }
+
+    // check greeting is here and is confident
+    const greeting = firstTrait(received_message.nlp, 'wit$greetings');
+    if (greeting) {
+        // sendResponse('Hi there!');
+        callSendAPI(sender_psid, {
+            "text": "hi" + greeting.confidence
+        });
+    } else {
+        // default logic
     }
 
+    // let response;
+    // let username = await getUserName(sender_psid);
+    // // Checks if the message contains text
+    // if (received_message.text) {
+    //     if (received_message.text == 'ho sốt')
+    //         response = {
+    //             "text": "bạn đã test covid chưa?"
+    //         }
+    //     // Create the payload for a basic text message, which
+    //     // will be added to the body of our request to the Send API
+
+    //     else
+    //         response = {
+
+    //             "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
+    //         }
+    // } else if (received_message.attachments) {
+    //     // Get the URL of the message attachment
+    //     let attachment_url = received_message.attachments[0].payload.url;
+    //     response = {
+    //         "attachment": {
+    //             "type": "template",
+    //             "payload": {
+    //                 "template_type": "generic",
+    //                 "elements": [{
+    //                     "title": "Đây là thông tin của bạn phải không?",
+    //                     "subtitle": "Tap a button to answer.",
+    //                     "image_url": attachment_url,
+    //                     "buttons": [{
+    //                             "type": "postback",
+    //                             "title": "Đúng rồi",
+    //                             "payload": "yes",
+    //                         },
+    //                         {
+    //                             "type": "postback",
+    //                             "title": "Không phải",
+    //                             "payload": "no",
+    //                         }
+    //                     ],
+    //                 }]
+    //             }
+    //         }
+    //     }
+    // }
+
     // Send the response message
-    callSendAPI(sender_psid, response);
+    // callSendAPI(sender_psid, response);
 }
 
 // Handles messaging_postbacks events
