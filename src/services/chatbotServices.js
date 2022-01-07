@@ -14,7 +14,9 @@ const IMAGE_GET_STARTED4 = 'https://bit.ly/IMG_DV4-1';
 const IMAGE_GET_STARTED5 = 'https://bit.ly/IMG_DV5';
 const IMAGE_GET_STARTED6 = 'https://bit.ly/IMG_DV6';
 const IMAGE_GET_STARTED7 = 'https://bit.ly/IMG_DV7';
-
+const IMAGE_GET_STARTED8 = 'https://bit.ly/IMG_DV8';
+const IMAGE_GET_STARTED9 = 'https://bit.ly/IMG_DV9';
+const IMAGE_GET_STARTED10 = 'https://bit.ly/IMG_DV10';
 
 let callSendAPI = (sender_psid, response) => {
     let request_body = {
@@ -256,12 +258,67 @@ let getTuvan_ONL = () => {
     await handleSendTHEMDV(sender_psid);
 }
 
+let handleDAT_LICH = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response1 = await getDAT_LICH(sender_psid);
+            await callSendAPI(sender_psid, response1);
+            resolve("done");
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
+
+let handleCHUAN_DOAN = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response1 = await getCHUAN_DOAN(sender_psid);
+            await callSendAPI(sender_psid, response1);
+            resolve("done");
+        } catch (e) {
+            reject(e);
+        }
+    });
+} 
+let getCHUAN_DOAN = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                        "title": "HO SỐT KHÓ THỞ",
+                        "subtitle": "Đó là triệu chứng thông thường của bệnh viêm phổi nhưng với diễn biến phức tạp của đại dịch cũng là triệu chứng của covid-19 hãy xét nghiệm để có thể có kết quả chính xác nhất!",
+                    },
+                    {
+                        "title": "ĐAU ĐẦU CHÓNG MẶT HOA MẮT",
+                        "subtitle": "Hãy cẩn thận có thể đó là dấu hiệu của cơn tuột huyết áp cấp và các bệnh nguy hiểm khác, ăn uống đủ chất không bỏ bữa. Hãy đến bệnh viện để được khám và xét nghiệm rõ hơn.",
+                    },
+                    {
+                        "title": "SỐT, HO RA MÁU, ĐỔ MỒ HÔI VỀ ĐÊM, KHÓ NGỦ",
+                        "subtitle": "Đó có thể là một trong những triệu chứng rõ ràng của các bệnh về phổi thường gặp nhất là LAO PHỔI. Hãy đến bệnh viện để có kết quả chính xác nhất!",
+                    },
+                    {
+                        "title": "VÀNG DA, MẪN NGỨA, ĐAU VÙNG BỤNG",
+                        "subtitle": "Đó là những dấu hiệu ban đầu của bệnh về gan như xơ gan, ung thư gan. Hãy đến bệnh viện thăm khám để có được kết quả chính xác nhất!",
+                    },
+
+                ]
+            }
+        }
+    }
+    return response;
+}
+
 
 module.exports = {
     handleGetStarted: handleGetStarted,
     handleSendTHEMDV: handleSendTHEMDV,
     handleTUVAN_ONL: handleTUVAN_ONL,
     handleQUAY_LAI: handleQUAY_LAI,
+    handleCHUAN_DOAN: handleCHUAN_DOAN,
+    handleDAT_LICH: handleDAT_LICH,
 
 
 };
