@@ -252,10 +252,16 @@ let getTuvan_ONL = () => {
     return response;
 }
 
+let handleQUAY_LAI =(sender_psid)=> {
+    await handleSendTHEMDV(sender_psid);
+}
+
+
 module.exports = {
     handleGetStarted: handleGetStarted,
     handleSendTHEMDV: handleSendTHEMDV,
     handleTUVAN_ONL: handleTUVAN_ONL,
+    handleQUAY_LAI: handleQUAY_LAI,
 
 
 };
