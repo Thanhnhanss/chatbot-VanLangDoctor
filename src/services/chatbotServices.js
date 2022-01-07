@@ -53,7 +53,7 @@ let sendTypingOn = (sender_psid) => {
         recipient: {
             "id": sender_psid,
         },
-        "sender_action":"typing_on",
+        "sender_action":"typing_on"
     };
 
     // Send the HTTP request to the Messenger Platform
@@ -80,7 +80,7 @@ let sendMarkReadMessage = (sender_psid) => {
         recipient: {
             "id": sender_psid,
         },
-        "sender_action":"mark_seen",
+        "sender_action":"mark_seen"
     };
 
     // Send the HTTP request to the Messenger Platform
