@@ -377,21 +377,7 @@ let getCHUAN_DOAN = () => {
 }
 
 let handleCHI_TIET = (sender_psid) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            //send an image
-            let response1 = await getCHUAN_DOAN(sender_psid);
-            //send an button templates : text, buttons
-            let response2 = await getCHUAN_DOAN(sender_psid);
-
-            
-            let response1 = await getCHUAN_DOAN(sender_psid);
-            await callSendAPI(sender_psid, response1);
-            resolve("done");
-        } catch (e) {
-            reject(e);
-        }
-    });
+  
 }
 
 module.exports = {
