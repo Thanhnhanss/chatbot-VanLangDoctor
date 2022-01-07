@@ -252,7 +252,7 @@ let getTuvan_ONL = () => {
     return response;
 }
 
-let handleQUAY_LAI =(sender_psid)=> {
+ let handleQUAY_LAI = async(sender_psid)=> {
     await handleSendTHEMDV(sender_psid);
 }
 
