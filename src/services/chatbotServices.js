@@ -53,7 +53,7 @@ let sendTypingOn = (sender_psid) => {
         recipient: {
             "id": sender_psid,
         },
-        "sender_action":"typing_on"
+        "sender_action": "typing_on"
     };
 
     // Send the HTTP request to the Messenger Platform
@@ -80,7 +80,7 @@ let sendMarkReadMessage = (sender_psid) => {
         recipient: {
             "id": sender_psid,
         },
-        "sender_action":"mark_seen"
+        "sender_action": "mark_seen"
     };
 
     // Send the HTTP request to the Messenger Platform
@@ -311,7 +311,7 @@ let getTuvan_ONL = () => {
     return response;
 }
 
- let handleQUAY_LAI = async(sender_psid)=> {
+let handleQUAY_LAI = async (sender_psid) => {
     await handleSendTHEMDV(sender_psid);
 }
 
@@ -337,7 +337,7 @@ let handleCHUAN_DOAN = (sender_psid) => {
             reject(e);
         }
     });
-} 
+}
 let getCHUAN_DOAN = () => {
     let response = {
         "attachment": {
@@ -360,6 +360,14 @@ let getCHUAN_DOAN = () => {
                         "title": "VÀNG DA, MẪN NGỨA, ĐAU VÙNG BỤNG",
                         "subtitle": "Đó là những dấu hiệu ban đầu của bệnh về gan như xơ gan, ung thư gan. Hãy đến bệnh viện thăm khám để có được kết quả chính xác nhất!",
                     },
+                    {
+                        "title": "Trở lại ban đầu",
+                        "buttons": [{
+                            "type": "postback",
+                            "title": "TRỞ LẠI",
+                            "payload": "QUAY_LAI",
+                        }, ],
+                    },
 
                 ]
             }
@@ -368,6 +376,23 @@ let getCHUAN_DOAN = () => {
     return response;
 }
 
+let handleCHI_TIET = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            //send an image
+            let response1 = await getCHUAN_DOAN(sender_psid);
+            //send an button templates : text, buttons
+            let response2 = await getCHUAN_DOAN(sender_psid);
+
+            
+            let response1 = await getCHUAN_DOAN(sender_psid);
+            await callSendAPI(sender_psid, response1);
+            resolve("done");
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
 
 module.exports = {
     handleGetStarted: handleGetStarted,
@@ -376,6 +401,7 @@ module.exports = {
     handleQUAY_LAI: handleQUAY_LAI,
     handleCHUAN_DOAN: handleCHUAN_DOAN,
     handleDAT_LICH: handleDAT_LICH,
+    handleCHI_TIET: handleCHI_TIET,
 
 
 };
