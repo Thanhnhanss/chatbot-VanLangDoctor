@@ -288,7 +288,6 @@ let getTuvan_ONL = () => {
                         "image_url": IMAGE_GET_STARTED6,
                         "buttons": [{
                             "type": "postback",
-
                             "title": "ĐẶT LỊCH",
                             "payload": "DAT_LICH",
                         }, ],
@@ -399,10 +398,16 @@ let getNUTBAM_CHITIET = () => {
                 "template_type": "button",
                 "text": "What do you want to do next?",
                 "buttons": [{
-                    "type": "web_url",
-                    "url": "https://www.messenger.com",
-                    "title": "Visit Messenger"
-                }, ]
+                        "type": "postback",
+                        "title": "ĐẶT LỊCH",
+                        "payload": "DAT_LICH",
+                    },
+                    {
+                        "type": "postback",
+                        "title": "TRỞ LẠI",
+                        "payload": "QUAY_LAI",
+                    },
+                ]
             }
         }
     }
