@@ -376,9 +376,57 @@ let getCHUAN_DOAN = () => {
     return response;
 }
 
-let handleCHI_TIET = (sender_psid) => {
-  
+let getHINHANH_CHITIET = () => {
+    let response = {
+        "attachment": {
+            "type": "image",
+            "payload": {
+                "url": IMAGE_GET_STARTED8,
+                "is_reusable": true
+            }
+        }
+    }
+
+    return response;
+
 }
+
+let getNUTBAM_CHITIET = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": "What do you want to do next?",
+                "buttons": [{
+                    "type": "web_url",
+                    "url": "https://www.messenger.com",
+                    "title": "Visit Messenger"
+                }, ]
+            }
+        }
+    }
+    return response;
+}
+
+let handleCHI_TIET = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            //send an image
+            let response1 = await getHINHANH_CHITIET(sender_psid);
+            //send an button templates : text, buttons
+            let response2 = await getNUTBAM_CHITIET(sender_psid);
+
+            await callSendAPI(sender_psid, response1);
+            await callSendAPI(sender_psid, response2);
+            resolve("done");
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
+
+
 
 module.exports = {
     handleGetStarted: handleGetStarted,
