@@ -439,7 +439,7 @@ module.exports = {
     handleTUVAN_ONL: handleTUVAN_ONL,
     handleQUAY_LAI: handleQUAY_LAI,
     handleCHUAN_DOAN: handleCHUAN_DOAN,
-    handleDAT_LICH: handleDAT_LICH,
+    // handleDAT_LICH: handleDAT_LICH,
     handleCHI_TIET: handleCHI_TIET,
 
 
