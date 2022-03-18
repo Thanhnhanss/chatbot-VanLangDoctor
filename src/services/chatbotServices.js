@@ -314,17 +314,17 @@ let handleQUAY_LAI = async (sender_psid) => {
     await handleSendTHEMDV(sender_psid);
 }
 
-let handleDAT_LICH = (sender_psid) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            let response1 = await getDAT_LICH(sender_psid);
-            await callSendAPI(sender_psid, response1);
-            resolve("done");
-        } catch (e) {
-            reject(e);
-        }
-    });
-}
+// let handleDAT_LICH = (sender_psid) => {
+//     return new Promise(async (resolve, reject) => {
+//         try {
+//             let response1 = await getDAT_LICH(sender_psid);
+//             await callSendAPI(sender_psid, response1);
+//             resolve("done");
+//         } catch (e) {
+//             reject(e);
+//         }
+//     });
+// }
 
 let handleCHUAN_DOAN = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
