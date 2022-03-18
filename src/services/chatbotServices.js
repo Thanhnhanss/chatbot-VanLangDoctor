@@ -158,9 +158,11 @@ let sendGetstartedTemplate = () => {
                     "subtitle": "Dưới đây là các lựa chọn",
                     "image_url": IMAGE_GET_STARTED,
                     "buttons": [{
-                            "type": "postback",
-                            "title": "ĐẶT LỊCH KHÁM",
-                            "payload": "DAT_LICH",
+                        "type": "web_url",
+                        "url": `${process.env.URL_DAT_LICH}`,
+                        "title": "ĐẶT LỊCH",
+                        "webview_height_ratio": "tall",
+                        "messenger_extensions": true //false: open the webview in new tab
                         },
                         {
                             "type": "postback",
@@ -204,9 +206,11 @@ let getThemDV = () => {
                         "subtitle": "Cảm ơn bạn đã ghé thăm, chúng tôi cung cấp những dịch vụ về tư vấn sức khoẻ cộng đồng",
                         "image_url": IMAGE_GET_STARTED1,
                         "buttons": [{
-                                "type": "postback",
-                                "title": "ĐẶT LỊCH KHÁM",
-                                "payload": "DAT_LICH",
+                            "type": "web_url",
+                            "url": `${process.env.URL_DAT_LICH}`,
+                            "title": "ĐẶT LỊCH",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": true //false: open the webview in new tab
                             },
                             {
                                 "type": "postback",
@@ -220,9 +224,11 @@ let getThemDV = () => {
                         "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
                         "image_url": IMAGE_GET_STARTED2,
                         "buttons": [{
-                            "type": "postback",
-                            "title": "ĐẶT LỊCH KHÁM",
-                            "payload": "DAT_LICH",
+                            "type": "web_url",
+                            "url": `${process.env.URL_DAT_LICH}`,
+                            "title": "ĐẶT LỊCH",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": true //false: open the webview in new tab
                         }, ],
                     },
                     {
@@ -287,9 +293,11 @@ let getTuvan_ONL = () => {
                         "subtitle": "Là cơ sở y tế mới nhất với các trang thiết bị hiện đại do trường Đại học Văn Lang thành lập năm 2021.",
                         "image_url": IMAGE_GET_STARTED6,
                         "buttons": [{
-                            "type": "postback",
+                            "type": "web_url",
+                            "url": `${process.env.URL_DAT_LICH}`,
                             "title": "ĐẶT LỊCH",
-                            "payload": "DAT_LICH",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": true //false: open the webview in new tab
                         }, ],
                     },
                     {
