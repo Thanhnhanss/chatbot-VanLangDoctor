@@ -159,6 +159,11 @@ let sendGetstartedTemplate = () => {
                     "image_url": IMAGE_GET_STARTED,
                     "buttons": [
                         {
+                            "type": "web_url",
+                            "url": "https://google.com",
+                            "title": "test"
+                        },
+                        {
                             "type": "postback",
                             "title": "THÊM DỊCH VỤ",
                             "payload": "THEM_DV",
