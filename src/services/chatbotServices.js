@@ -157,10 +157,9 @@ let sendGetstartedTemplate = () => {
                     "title": "Xin chào bạn đến với phòng khám của Bác sĩ Văn Lang",
                     "subtitle": "Dưới đây là các lựa chọn",
                     "image_url": IMAGE_GET_STARTED,
-                    "buttons": [
-                        {
+                    "buttons": [{
                             "type": "web_url",
-                            "url": "https://google.com",
+                            "url": process.env.URL_DAT_LICH,
                             "title": "test"
                         },
                         {
