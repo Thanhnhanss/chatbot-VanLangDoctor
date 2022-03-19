@@ -159,7 +159,7 @@ let sendGetstartedTemplate = () => {
                     "image_url": IMAGE_GET_STARTED,
                     "buttons": [{
                             "type": "web_url",
-                            "url": process.env.URL_DAT_LICH,
+                            "url": process.env.URL_DAT_BAN,
                             "title": "test"
                         },
                         {
