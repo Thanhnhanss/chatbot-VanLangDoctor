@@ -157,13 +157,7 @@ let sendGetstartedTemplate = () => {
                     "title": "Xin chào bạn đến với phòng khám của Bác sĩ Văn Lang",
                     "subtitle": "Dưới đây là các lựa chọn",
                     "image_url": IMAGE_GET_STARTED,
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": `${process.env.URL_DAT_LICH}`,
-                        "title": "ĐẶT LỊCH",
-                        "webview_height_ratio": "tall",
-                        "messenger_extensions": true //false: open the webview in new tab
-                        },
+                    "buttons": [
                         {
                             "type": "postback",
                             "title": "THÊM DỊCH VỤ",
@@ -206,11 +200,11 @@ let getThemDV = () => {
                         "subtitle": "Cảm ơn bạn đã ghé thăm, chúng tôi cung cấp những dịch vụ về tư vấn sức khoẻ cộng đồng",
                         "image_url": IMAGE_GET_STARTED1,
                         "buttons": [{
-                            "type": "web_url",
-                            "url": `${process.env.URL_DAT_LICH}`,
-                            "title": "ĐẶT LỊCH",
-                            "webview_height_ratio": "tall",
-                            "messenger_extensions": true //false: open the webview in new tab
+                                "type": "web_url",
+                                "url": `${process.env.URL_DAT_LICH}`,
+                                "title": "ĐẶT LỊCH",
+                                "webview_height_ratio": "tall",
+                                "messenger_extensions": true //false: open the webview in new tab
                             },
                             {
                                 "type": "postback",
@@ -293,6 +287,7 @@ let getTuvan_ONL = () => {
                         "subtitle": "Là cơ sở y tế mới nhất với các trang thiết bị hiện đại do trường Đại học Văn Lang thành lập năm 2021.",
                         "image_url": IMAGE_GET_STARTED6,
                         "buttons": [{
+
                             "type": "web_url",
                             "url": `${process.env.URL_DAT_LICH}`,
                             "title": "ĐẶT LỊCH",
@@ -322,17 +317,6 @@ let handleQUAY_LAI = async (sender_psid) => {
     await handleSendTHEMDV(sender_psid);
 }
 
-// let handleDAT_LICH = (sender_psid) => {
-//     return new Promise(async (resolve, reject) => {
-//         try {
-//             let response1 = await getDAT_LICH(sender_psid);
-//             await callSendAPI(sender_psid, response1);
-//             resolve("done");
-//         } catch (e) {
-//             reject(e);
-//         }
-//     });
-// }
 
 let handleCHUAN_DOAN = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
@@ -345,6 +329,7 @@ let handleCHUAN_DOAN = (sender_psid) => {
         }
     });
 }
+
 let getCHUAN_DOAN = () => {
     let response = {
         "attachment": {
@@ -447,7 +432,6 @@ module.exports = {
     handleTUVAN_ONL: handleTUVAN_ONL,
     handleQUAY_LAI: handleQUAY_LAI,
     handleCHUAN_DOAN: handleCHUAN_DOAN,
-    // handleDAT_LICH: handleDAT_LICH,
     handleCHI_TIET: handleCHI_TIET,
 
 

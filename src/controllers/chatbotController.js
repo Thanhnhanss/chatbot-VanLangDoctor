@@ -4,6 +4,7 @@ import {
     Wit
 } from "node-wit";
 import chatbotService from "../services/chatbotServices";
+import getOptionSpecificExcludes from "@babel/preset-env/lib/get-option-specific-excludes";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
@@ -203,9 +204,6 @@ async function handlePostback(sender_psid, received_postback) {
         case "TUVAN_ONL":
             await chatbotService.handleTUVAN_ONL(sender_psid);
             break;
-        case "DAT_LICH":
-            await chatbotService.handleDAT_LICH(sender_psid);
-            break;
         case "CHUAN_DOAN":
             await chatbotService.handleCHUAN_DOAN(sender_psid);
             break;
@@ -336,3 +334,4 @@ module.exports = {
 
 
 }
+
