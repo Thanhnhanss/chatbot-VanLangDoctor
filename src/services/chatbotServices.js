@@ -158,9 +158,11 @@ let sendGetstartedTemplate = () => {
                     "subtitle": "Dưới đây là các lựa chọn",
                     "image_url": IMAGE_GET_STARTED,
                     "buttons": [{
-                            "type": "web_url",
-                            "url": process.env.URL_DAT_BAN,
-                            "title": "test"
+                        "type": "web_url",
+                        "url": `${process.env.URL_DAT_BAN}`,
+                        "title": "ĐẶT LỊCH",
+                        "webview_height_ratio": "tall",
+                        "messenger_extensions": true //false: open the webview in new tab
                         },
                         {
                             "type": "postback",
