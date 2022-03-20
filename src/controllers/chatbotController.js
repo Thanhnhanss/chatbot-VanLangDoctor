@@ -28,7 +28,7 @@ let writeDataToGoogleSheet = async (data) => {
     let formartedDate = moment(currentDate).format(format);
   
     //
-    const doc = new GoogleSpreadsheet(SPEADSHEET_ID);
+    const doc = new GoogleSpreadsheet('15FYYxU58hflxK2rJAa0eO5BN4CxV207-H9DWHE_fRaI');
   
     // Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
     await doc.useServiceAccountAuth({
