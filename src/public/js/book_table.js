@@ -9,16 +9,16 @@
 window.extAsyncInit = function () {
     // the Messenger Extensions JS SDK is done loading 
 
-    MessengerExtensions.getContext('753933095237424',
+    MessengerExtensions.getContext('1319937271855579',
         function success(thread_context) {
             // success
             //set psid to input
             $("#psid").val(thread_context.psid);
-            handleClickButtonReserveTable();
+            handleClickButtonBookTable();
         },
         function error(err) {
             // error
-            console.log('Lỗi đặt bàn Eric bot', err);
+            console.log('Lỗi đặt lịch VănLang chatbot', err);
         }
     );
 };
@@ -48,8 +48,8 @@ function validateInputFields() {
 }
 
 
-function handleClickButtonReserveTable() {
-    $("#btnReserveTable").on("click", function (e) {
+function handleClickButtonBookTable() {
+    $("#btnBookTable").on("click", function (e) {
         let check = validateInputFields(); //return true or false
 
         let data = {
@@ -70,7 +70,7 @@ function handleClickButtonReserveTable() {
 
             //send data to node.js server 
             $.ajax({
-                url: `${window.location.origin}/reserve-table-ajax`,
+                url: `${window.location.origin}/book-table-ajax`,
                 method: "POST",
                 data: data,
                 success: function (data) {

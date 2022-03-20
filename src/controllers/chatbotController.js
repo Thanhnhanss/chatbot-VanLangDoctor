@@ -5,6 +5,7 @@ import {
 } from "node-wit";
 import chatbotService from "../services/chatbotServices";
 import getOptionSpecificExcludes from "@babel/preset-env/lib/get-option-specific-excludes";
+import req from "express/lib/request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
@@ -324,6 +325,52 @@ let handleBookTable = (req, res) => {
     return res.render('book_table.ejs');
 }
 
+let handlePostBookTable = async (res, req) => {
+    try {
+        let username = await chatbotService.getUserName(req.body.psid);
+
+        //write data to google sheet
+        let data = {
+            username: username,
+            email: req.body.email,
+            phoneNumber: `'${req.body.phoneNumber}`,
+            customerName: req.body.customerName
+        }
+
+        await writeDataToGoogleSheet(data);
+
+        let customerName = "";
+        if (req.body.customerName === "") {
+            customerName = username;
+        } else customerName = req.body.customerName;
+
+        // I demo response with sample text
+        // you can check database for customer order's status
+
+        let response1 = {
+            "text": `--- THÔNG TIN KHÁCH HÀNG ĐẶT LỊCH KHÁM ---
+            \nHỌ VÀ TÊN: ${customerName}
+            \nEMAIL: ${req.body.email}
+            \nSỐ ĐIỆN THOẠI: ${req.body.phoneNumber}
+            `
+        };
+
+        await chatbotServices.callSendAPI(req.body.psid, response1);
+
+        return res.status(200).json({
+            message: "ok"
+        });
+
+    } catch (e) {
+        console.log('Lỗi post book table: ', e)
+        return res.status(500).json({
+            message: "Server error"
+        });
+    }
+
+}
+
+
 module.exports = {
     getHomepage: getHomepage, //key : value
     postWebhook: postWebhook,
@@ -331,7 +378,7 @@ module.exports = {
     setupProfile: setupProfile,
     setupPresistentMenu: setupPresistentMenu,
     handleBookTable: handleBookTable,
+    handlePostBookTable: handlePostBookTable,
 
 
 }
-
