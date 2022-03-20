@@ -327,7 +327,7 @@ let handleBookTable = (req, res) => {
 
 let handlePostBookTable = async (res, req) => {
     try {
-        let username = await chatbotService.getUserName(req.body.psid);
+        let username = await chatbotServices.getUserName(req.body.psid);
 
         //write data to google sheet
         let data = {
