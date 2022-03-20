@@ -18,7 +18,7 @@ const IMAGE_GET_STARTED8 = 'https://bit.ly/IMG_DV8';
 const IMAGE_GET_STARTED9 = 'https://bit.ly/IMG_DV9';
 const IMAGE_GET_STARTED10 = 'https://bit.ly/IMG_DV10';
 
-let     callSendAPI = async (sender_psid, response) => {
+let callSendAPI = async (sender_psid, response) => {
     let request_body = {
         recipient: {
             "id": sender_psid,
@@ -440,5 +440,6 @@ module.exports = {
     handleCHUAN_DOAN: handleCHUAN_DOAN,
     handleCHI_TIET: handleCHI_TIET,
     callSendAPI: callSendAPI,
-
+    getUserName: getUserName,
+    
 };

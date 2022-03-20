@@ -10,6 +10,12 @@ import req from "express/lib/request";
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const MY_TOKEN = process.env.MY_TOKEN;
+const SPEADSHEET_ID = process.env.SPEADSHEET_ID;
+
+
+
+
+
 const client = new Wit({
     accessToken: MY_TOKEN
 });
