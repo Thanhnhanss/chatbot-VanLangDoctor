@@ -6,19 +6,49 @@ import {
 import chatbotService from "../services/chatbotServices";
 import getOptionSpecificExcludes from "@babel/preset-env/lib/get-option-specific-excludes";
 import req from "express/lib/request";
+import moment from "moment";
+
+const {GoogleSpreadsheet } = require('google-spreadsheet');
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const MY_TOKEN = process.env.MY_TOKEN;
 const SPEADSHEET_ID = process.env.SPEADSHEET_ID;
-
-
-
-
+const GOOGLE_SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY;
 
 const client = new Wit({
     accessToken: MY_TOKEN
 });
+
+let writeDataToGoogleSheet = async (data) => {
+
+    let currentDate = new Date();
+    const format = "HH:mm DD/MM/YYYY"
+    let formartedDate = moment(currentDate).format(format);
+  
+    //
+    const doc = new GoogleSpreadsheet(SPEADSHEET_ID);
+  
+    // Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
+    await doc.useServiceAccountAuth({
+      client_email: JSON.parse(`"${GOOGLE_SERVICE_ACCOUNT_EMAIL}"`),
+      private_key: JSON.parse(`"${  GOOGLE_PRIVATE_KEY}"`),
+    });
+  
+    await doc.loadInfo(); // loads document properties and worksheets
+    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+  
+  
+    //append rows
+    await sheet.addRow({
+      "Tên Facebook": data.username,
+      "Email": data.email,
+      "Số điện thoại": data.phoneNumber,
+      "Thời gian": formartedDate,
+      "Tên khách hàng": data.customerName
+    });
+  }
 
 let getHomepage = (req, res) => {
     return res.render('homepage.ejs');
