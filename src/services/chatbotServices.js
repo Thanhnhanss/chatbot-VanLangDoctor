@@ -161,7 +161,7 @@ let sendGetstartedTemplate = () => {
                         "type": "web_url",
                         "url": `${process.env.URL_DAT_BAN}`,
                         "title": "ĐẶT LỊCH",
-                        "webview_height_ratio": "tall",
+                        "webview_height_ratio": "full",
                         "messenger_extensions": true //false: open the webview in new tab
                         },
                         {
@@ -209,7 +209,7 @@ let getThemDV = () => {
                                 "type": "web_url",
                                 "url": `${process.env.URL_DAT_LICH}`,
                                 "title": "ĐẶT LỊCH",
-                                "webview_height_ratio": "tall",
+                                "webview_height_ratio": "full",
                                 "messenger_extensions": true //false: open the webview in new tab
                             },
                             {
@@ -227,7 +227,7 @@ let getThemDV = () => {
                             "type": "web_url",
                             "url": `${process.env.URL_DAT_LICH}`,
                             "title": "ĐẶT LỊCH",
-                            "webview_height_ratio": "tall",
+                            "webview_height_ratio": "full",
                             "messenger_extensions": true //false: open the webview in new tab
                         }, ],
                     },
@@ -297,7 +297,7 @@ let getTuvan_ONL = () => {
                             "type": "web_url",
                             "url": `${process.env.URL_DAT_LICH}`,
                             "title": "ĐẶT LỊCH",
-                            "webview_height_ratio": "tall",
+                            "webview_height_ratio": "full",
                             "messenger_extensions": true //false: open the webview in new tab
                         }, ],
                     },
