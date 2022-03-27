@@ -377,6 +377,8 @@ let handlePostBookTable = async (res, req) => {
 
         await writeDataToGoogleSheet(data);
 
+        console.log(data);
+
         let customerName = "";
         if (req.body.customerName === "") {
             customerName = username;
