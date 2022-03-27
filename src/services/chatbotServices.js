@@ -207,6 +207,7 @@ let handleSendTHEMDV = (sender_psid) => {
 }
 
 let getThemDV = () => {
+    console.log(process.env.URL_DAT_LICH);
     let response = {
         "attachment": {
             "type": "template",
