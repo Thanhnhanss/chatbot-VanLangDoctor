@@ -11,7 +11,7 @@
 
 window.extAsyncInit = function () {
     // the Messenger Extensions JS SDK is done loading 
-    
+
     MessengerExtensions.getContext('1319937271855579',
         function success(thread_context) {
             // success
@@ -72,6 +72,7 @@ function handleClickButtonBookTable() {
             });
 
             //send data to node.js server 
+            console.log(window.location.origin);
             $.ajax({
                 url: `${window.location.origin}/book-table-ajax`,
                 method: "POST",
