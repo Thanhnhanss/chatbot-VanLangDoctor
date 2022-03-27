@@ -54,7 +54,8 @@ function validateInputFields() {
 function handleClickButtonBookTable() {
     $("#btnBookTable").on("click", function (e) {
         let check = validateInputFields(); //return true or false
-
+        console.log(window.location.origin);
+        console.log(check);
         let data = {
             psid: $("#psid").val(),
             customerName: $("#customerName").val(),
@@ -72,7 +73,6 @@ function handleClickButtonBookTable() {
             });
 
             //send data to node.js server 
-            console.log(window.location.origin);
             $.ajax({
                 url: `${window.location.origin}/book-table-ajax`,
                 method: "POST",
