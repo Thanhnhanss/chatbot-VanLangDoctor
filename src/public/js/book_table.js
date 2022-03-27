@@ -57,7 +57,7 @@ function handleClickButtonBookTable() {
     $('#temp').text(window.location.origin);
     $("#btnBookTable").on("click", function (e) {
         let check = validateInputFields(); //return true or false
-        console.log(check);
+        $('#temp').text(check);
         let data = {
             psid: $("#psid").val(),
             customerName: $("#customerName").val(),
