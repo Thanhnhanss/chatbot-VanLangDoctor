@@ -19,34 +19,45 @@ const IMAGE_GET_STARTED9 = 'https://bit.ly/IMG_DV9';
 const IMAGE_GET_STARTED10 = 'https://bit.ly/IMG_DV10';
 
 let callSendAPI = async (sender_psid, response) => {
-    let request_body = {
-        recipient: {
-            "id": sender_psid,
-        },
-        "message": response,
-    };
-
-    await sendMarkReadMessage(sender_psid);
-    await sendTypingOn(sender_psid);
-
-    // Send the HTTP request to the Messenger Platform
-    request({
-            "uri": "https://graph.facebook.com/v9.0/me/messages",
-            "qs": {
-                access_token: PAGE_ACCESS_TOKEN,
-            },
-            "method": "POST",
-            "json": request_body,
-        },
-        (err, res, body) => {
-            if (!err) {
-                console.log("message sent!");
-            } else {
-                console.error("Unable to send message:" + err);
+    return new Promise(async (resolve, reject) => {
+        try {
+            // Construct the message body
+            let request_body = {
+                "recipient": {
+                    "id": sender_psid
+                },
+                "message": response
             }
+
+            await sendTypingOn(sender_psid);
+            await sendMarkReadMessage(sender_psid);
+
+            // Send the HTTP request to the Messenger Platform
+            request({
+                "uri": "https://graph.facebook.com/v9.0/me/messages",
+                "qs": {
+                    "access_token": PAGE_ACCESS_TOKEN
+                },
+                "method": "POST",
+                "json": request_body
+            }, (err, res, body) => {
+                console.log('---------------');
+                console.log(body);
+                console.log('---------------');
+                if (!err) {
+                    resolve('message sent!')
+                    // console.log('message sent!')
+                } else {
+                    console.error("Unable to send message:" + err);
+                }
+            });
+
+        } catch (e) {
+            reject(e);
         }
-    );
-};
+    })
+
+}
 
 let sendTypingOn = (sender_psid) => {
     let request_body = {
@@ -158,11 +169,11 @@ let sendGetstartedTemplate = () => {
                     "subtitle": "Dưới đây là các lựa chọn",
                     "image_url": IMAGE_GET_STARTED,
                     "buttons": [{
-                        "type": "web_url",
-                        "url": `${process.env.URL_DAT_BAN}`,
-                        "title": "ĐẶT LỊCH",
-                        "webview_height_ratio": "tall",
-                        "messenger_extensions": true //false: open the webview in new tab
+                            "type": "web_url",
+                            "url": `${process.env.URL_DAT_BAN}`,
+                            "title": "ĐẶT LỊCH",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": true //false: open the webview in new tab
                         },
                         {
                             "type": "postback",
@@ -441,5 +452,5 @@ module.exports = {
     handleCHI_TIET: handleCHI_TIET,
     callSendAPI: callSendAPI,
     getUserName: getUserName,
-    
+
 };

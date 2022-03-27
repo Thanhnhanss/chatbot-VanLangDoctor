@@ -46,7 +46,7 @@ let writeDataToGoogleSheet = async (data) => {
     await sheet.addRow({
         "Tên Facebook": data.username,
         "Email": data.email,
-        "Số điện thoại": `'` + data.phoneNumber,
+        "Số điện thoại": data.phoneNumber,
         "Thời gian": formartedDate,
         "Tên khách hàng": data.customerName
     });
@@ -60,7 +60,7 @@ let getHomepage = (req, res) => {
 let getWebhook = (req, res) => {
 
     // Your verify token. Should be a random string.
-    let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+   
 
     // Parse the query params
     let mode = req.query['hub.mode'];
@@ -316,7 +316,7 @@ let setupProfile = async (req, res) => {
         }
     });
 
-    return res.send("Setup User ProFILE success!");
+    return res.send("Hallo! Cảm ơn bạn đã đến với VanLang doctor <3!");
 
 }
 
