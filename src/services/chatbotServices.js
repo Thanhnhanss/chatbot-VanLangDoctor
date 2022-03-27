@@ -196,7 +196,7 @@ let sendGetstartedTemplate = () => {
 let handleSendTHEMDV = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let response1 = await getThemDV(sender_psid);
+            let response1 = getThemDV(sender_psid);
             await callSendAPI(sender_psid, response1);
             resolve("done");
         } catch (e) {
