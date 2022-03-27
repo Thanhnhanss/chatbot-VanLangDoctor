@@ -60,7 +60,7 @@ let getHomepage = (req, res) => {
 let getWebhook = (req, res) => {
 
     // Your verify token. Should be a random string.
-   
+
 
     // Parse the query params
     let mode = req.query['hub.mode'];
@@ -365,7 +365,7 @@ let handleBookTable = (req, res) => {
 
 let handlePostBookTable = async (res, req) => {
     try {
-        let username = await chatbotServices.getUserName(req.body.psid);
+        let username = await chatbotService.getUserName(req.body.psid);
 
         //write data to google sheet
         let data = {
