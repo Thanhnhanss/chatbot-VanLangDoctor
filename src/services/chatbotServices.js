@@ -207,7 +207,7 @@ let handleSendTHEMDV = (sender_psid) => {
 }
 
 let getThemDV = () => {
-    console.log(process.env.URL_DAT_LICH);
+    console.log(process.env.URL_DAT_BAN);
     let response = {
         "attachment": {
             "type": "template",
@@ -219,7 +219,7 @@ let getThemDV = () => {
                         "image_url": IMAGE_GET_STARTED1,
                         "buttons": [{
                                 "type": "web_url",
-                                "url": `${process.env.URL_DAT_LICH}`,
+                                "url": `${process.env.URL_DAT_BAN}`,
                                 "title": "ĐẶT LỊCH",
                                 "webview_height_ratio": "tall",
                                 "messenger_extensions": true //false: open the webview in new tab
@@ -237,7 +237,7 @@ let getThemDV = () => {
                         "image_url": IMAGE_GET_STARTED2,
                         "buttons": [{
                             "type": "web_url",
-                            "url": `${process.env.URL_DAT_LICH}`,
+                            "url": `${process.env.URL_DAT_BAN}`,
                             "title": "ĐẶT LỊCH",
                             "webview_height_ratio": "tall",
                             "messenger_extensions": true //false: open the webview in new tab
@@ -307,7 +307,7 @@ let getTuvan_ONL = () => {
                         "buttons": [{
 
                             "type": "web_url",
-                            "url": `${process.env.URL_DAT_LICH}`,
+                            "url": `${process.env.URL_DAT_BAN}`,
                             "title": "ĐẶT LỊCH",
                             "webview_height_ratio": "tall",
                             "messenger_extensions": true //false: open the webview in new tab
