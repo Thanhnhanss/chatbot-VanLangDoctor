@@ -57,13 +57,13 @@ function handleClickButtonBookTable() {
     $('#temp').text(window.location.origin);
     $("#btnBookTable").on("click", function (e) {
         let check = validateInputFields(); //return true or false
-        $('#temp').text(check);
         let data = {
             psid: $("#psid").val(),
             customerName: $("#customerName").val(),
             email: $("#email").val(),
             phoneNumber: $("#phoneNumber").val()
         };
+        $('#temp').text(data);
 
         if (!check) {
             //close webview
