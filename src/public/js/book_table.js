@@ -22,6 +22,7 @@ window.extAsyncInit = function () {
         function error(err) {
             // error
             console.log('Lỗi đặt lịch VănLang chatbot', err);
+            $('#error').text(err);
         }
     );
 };
@@ -52,9 +53,10 @@ function validateInputFields() {
 
 
 function handleClickButtonBookTable() {
+
+    $('#temp').text(window.location.origin);
     $("#btnBookTable").on("click", function (e) {
         let check = validateInputFields(); //return true or false
-        console.log(window.location.origin);
         console.log(check);
         let data = {
             psid: $("#psid").val(),
