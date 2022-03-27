@@ -67,12 +67,12 @@ function handleClickButtonBookTable() {
 
         if (!check) {
             //close webview
-            // MessengerExtensions.requestCloseBrowser(function success() {
-            //     // webview closed
-            // }, function error(err) {
-            //     // an error occurred
-            //     console.log(err);
-            // });
+            MessengerExtensions.requestCloseBrowser(function success() {
+                // webview closed
+            }, function error(err) {
+                // an error occurred
+                console.log(err);
+            });
 
             //send data to node.js server 
             $.ajax({
@@ -80,12 +80,12 @@ function handleClickButtonBookTable() {
                 method: "POST",
                 data: data,
                 success: function (data) {
-                    console.log(data);
+                    $('#temp').text(data);
                 },
                 error: function (error) {
-                    console.log(error);
+                    $('#temp').text(error);
                 }
-            })
+            });
         }
     });
 }
