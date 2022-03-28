@@ -74,18 +74,19 @@ function handleClickButtonBookTable() {
             //     console.log(err);
             // });
 
+            
             //send data to node.js server 
             $.ajax({
-                url: `${window.location.origin}/book-table-ajax`,
+                url: `${window.location.origin}/reserve-table-ajax`,
                 method: "POST",
                 data: data,
                 success: function (data) {
-                    $('#temp').text(data);
+                    console.log(data);
                 },
                 error: function (error) {
-                    $('#temp').text(error);
+                    console.log(error);
                 }
-            });
+            })
         }
     });
 }
