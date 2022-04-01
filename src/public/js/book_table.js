@@ -53,8 +53,6 @@ function validateInputFields() {
 
 
 function handleClickButtonBookTable() {
-
-    $('#temp').text(window.location.origin);
     $("#btnBookTable").on("click", function (e) {
         let check = validateInputFields(); //return true or false
         let data = {
@@ -66,38 +64,19 @@ function handleClickButtonBookTable() {
 
         if (!check) {
             //close webview
-            // MessengerExtensions.requestCloseBrowser(function success() {
-            //     // webview closed
-            // }, function error(err) {
-            //     // an error occurred
-            //     console.log(err);
-            // });
+            MessengerExtensions.requestCloseBrowser(function success() {
+                // webview closed
+            }, function error(err) {
+                // an error occurred
+                console.log(err);
+            });
 
-            //send data to node.js server 
-            // $.ajax({
-            //     url: `${window.location.origin}/book-table-ajax`,
-            //     method: "POST",
-            //     data: data,
-            //     success: function (data) {
-            //         $('#temp').text(data);
-            //     },
-            //     error: function (error) {
-            //         $('#temp').text(error);
-            //     }
-            // });
-            // $.post(`${window.location.origin}/reserve-table-ajax`, data)
-            //     .done(function (data) {
-            //         $('#temp').text(data);
-            //     })
-            //     .fail(function (error) {
-            //         $('#temp').text(error);
-            //     })
             axios.post('https://chatbotbacsivanlang.herokuapp.com/reserve-table-ajax', data)
                 .then(function (data) {
-                    $('#temp').text(data);
+                    console.log(data);
                 })
                 .catch(function (error) {
-                    $('#temp').text(error);
+                    console.log(error);
                 });
         }
     });
