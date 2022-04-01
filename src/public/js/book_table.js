@@ -86,13 +86,13 @@ function handleClickButtonBookTable() {
                     $('#temp').text(error);
                 }
             });
-            $.post(`${window.location.origin}/book-table-ajax`, data)
+            $.post(`${window.location.origin}/reserve-table-ajax`, data)
                 .done(function (data) {
                     $('#temp').text(data);
                 })
                 .fail(function (error) {
                     $('#temp').text(error);
-                });
+                })
         }
     });
 }
