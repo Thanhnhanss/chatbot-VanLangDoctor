@@ -63,7 +63,6 @@ function handleClickButtonBookTable() {
             email: $("#email").val(),
             phoneNumber: $("#phoneNumber").val()
         };
-        $('#temp').text(JSON.stringify(data));
 
         if (!check) {
             //close webview
