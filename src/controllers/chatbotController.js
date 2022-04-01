@@ -363,7 +363,7 @@ let handleBookTable = (req, res) => {
     return res.render('book_table.ejs');
 }
 
-let handlePostBookTable = async (res, req) => {
+let handlePostBookTable = async (req, res) => {
     console.log('Begin handle post book table');
     try {
         let username = await chatbotService.getUserName(req.body.psid);
