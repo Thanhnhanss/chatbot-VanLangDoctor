@@ -74,24 +74,31 @@ function handleClickButtonBookTable() {
             // });
 
             //send data to node.js server 
-            $.ajax({
-                url: `${window.location.origin}/book-table-ajax`,
-                method: "POST",
-                data: data,
-                success: function (data) {
-                    $('#temp').text(data);
-                },
-                error: function (error) {
-                    $('#temp').text(error);
-                }
-            });
-            $.post(`${window.location.origin}/reserve-table-ajax`, data)
-                .done(function (data) {
+            // $.ajax({
+            //     url: `${window.location.origin}/book-table-ajax`,
+            //     method: "POST",
+            //     data: data,
+            //     success: function (data) {
+            //         $('#temp').text(data);
+            //     },
+            //     error: function (error) {
+            //         $('#temp').text(error);
+            //     }
+            // });
+            // $.post(`${window.location.origin}/reserve-table-ajax`, data)
+            //     .done(function (data) {
+            //         $('#temp').text(data);
+            //     })
+            //     .fail(function (error) {
+            //         $('#temp').text(error);
+            //     })
+            axios.post('https://chatbotbacsivanlang.herokuapp.com/reserve-table-ajax', data)
+                .then(function (data) {
                     $('#temp').text(data);
                 })
-                .fail(function (error) {
+                .catch(function (error) {
                     $('#temp').text(error);
-                })
+                });
         }
     });
 }
