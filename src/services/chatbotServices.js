@@ -5,7 +5,7 @@ import {
 import request from "request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const IMAGE_GET_STARTED = 'https://bit.ly/IMG_TMP';
+const IMAGE_GET_STARTED = 'https://bit.ly/IMG_TMP-1';
 const IMAGE_GET_STARTED1 = 'https://bit.ly/IMG_DV1-1';
 
 const IMAGE_GET_STARTED2 = 'https://bit.ly/IMG_DV2-1';
@@ -231,18 +231,18 @@ let getThemDV = () => {
                             },
                         ],
                     },
-                    {
-                        "title": "Dịch vụ khám bệnh của VanLangDoctor",
-                        "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
-                        "image_url": IMAGE_GET_STARTED2,
-                        "buttons": [{
-                            "type": "web_url",
-                            "url": `${process.env.URL_DAT_BAN}`,
-                            "title": "ĐẶT LỊCH",
-                            "webview_height_ratio": "tall",
-                            "messenger_extensions": true //false: open the webview in new tab
-                        }, ],
-                    },
+                    // {
+                    //     "title": "Dịch vụ khám bệnh của VanLangDoctor",
+                    //     "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
+                    //     "image_url": IMAGE_GET_STARTED2,
+                    //     "buttons": [{
+                    //         "type": "web_url",
+                    //         "url": `${process.env.URL_DAT_BAN}`,
+                    //         "title": "ĐẶT LỊCH",
+                    //         "webview_height_ratio": "tall",
+                    //         "messenger_extensions": true //false: open the webview in new tab
+                    //     }, ],
+                    // },
                     {
                         "title": "Không gian phòng khám của Bác sĩ Văn Lang",
                         "subtitle": "Cung cấp dịch vụ chăm sóc sức khỏe hiện đại – tiên tiến nhất, chúng tôi cam kết mang đến cho bạn và gia đình phương pháp tiếp cận toàn diện cho một cuộc sống khỏe mạnh hơn.",
@@ -250,7 +250,7 @@ let getThemDV = () => {
                         "buttons": [{
                             "type": "postback",
 
-                            "title": "CHI TIẾT",
+                            "title": "GIỚI THIỆU",
                             "payload": "CHI_TIET",
                         }, ],
                     },
@@ -286,7 +286,7 @@ let getTuvan_ONL = () => {
                         "image_url": IMAGE_GET_STARTED4,
                         "buttons": [{
                             "type": "postback",
-                            "title": "THÔNG TIN THÊM",
+                            "title": "BẮT ĐẦU CUỘC TRÒ CHUYỆN",
                             "payload": "TUVAN_ONL",
                         }, ],
                     },
