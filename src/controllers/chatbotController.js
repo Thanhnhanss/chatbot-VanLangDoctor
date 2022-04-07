@@ -171,7 +171,7 @@ async function handleMessage(sender_psid, received_message) {
             response = {
                 "text": "bạn đã test covid chưa?"
             }
-        if (received_message.text == 'Chưa')
+        else (received_message.text == 'Chưa')
             response = {
                 "text": "Hãy đến trung tâm y tế gần nhất để test, hoặc đặt mua que test online.Đó cũng có thể là triệu chứng của bệnh cảm, hoặc sốt thông thường đừng quá lo lắng."
             }
