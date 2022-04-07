@@ -171,14 +171,6 @@ async function handleMessage(sender_psid, received_message) {
             response = {
                 "text": "bạn đã test covid chưa?"
             }
-        else (received_message.text == 'Chưa')
-            response = {
-                "text": "Hãy đến trung tâm y tế gần nhất để test, hoặc đặt mua que test online.Đó cũng có thể là triệu chứng của bệnh cảm, hoặc sốt thông thường đừng quá lo lắng."
-            }
-        if (received_message.text == 'Rồi')
-            response = {
-                "text": "......"
-            }
 
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
