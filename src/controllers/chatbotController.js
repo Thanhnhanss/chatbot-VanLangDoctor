@@ -381,7 +381,9 @@ let handlePostBookTable = async (req, res) => {
             username: username,
             email: req.body.email,
             phoneNumber: `'${req.body.phoneNumber}`,
-            customerName: req.body.customerName
+            customerName: req.body.customerName,
+            faculty: req.body.faculty,
+            time: req.body.time
         }
 
         await writeDataToGoogleSheet(data);
@@ -401,6 +403,8 @@ let handlePostBookTable = async (req, res) => {
             \nHỌ VÀ TÊN: ${customerName}
             \nEMAIL: ${req.body.email}
             \nSỐ ĐIỆN THOẠI: ${req.body.phoneNumber}
+            \nKHOA: ${req.body.faculty}
+            \nKHUNG GIỜ: ${req.body.time}
             `
         };
 

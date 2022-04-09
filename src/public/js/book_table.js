@@ -76,7 +76,9 @@ function handleClickButtonBookTable() {
             psid: $("#psid").val(),
             customerName: $("#customerName").val(),
             email: $("#email").val(),
-            phoneNumber: $("#phoneNumber").val()
+            phoneNumber: $("#phoneNumber").val(),
+            faculty: $('#faculty > button').html(),
+            time: $('#time > button').html()
         };
 
         if (!check) {
