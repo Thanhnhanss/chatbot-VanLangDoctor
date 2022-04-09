@@ -102,11 +102,11 @@ function handleClickButtonBookTable() {
 $(document).ready(() => {
     $('#time .dropdown-menu .dropdown-item').click(function (e) {
         e.preventDefault();
-        $('.dropdown > button').html($(this).text());
+        $('#time > button').html($(this).text());
     });
 
     $('#faculty .dropdown-menu .dropdown-item').click(function (e) {
         e.preventDefault();
-        $('.dropdown > button').html($(this).text());
+        $('#faculty > button').html($(this).text());
     });
 });
