@@ -364,10 +364,10 @@ let setupPresistentMenu = async (req, res) => {
 
 let handleBookTable = async (req, res) => {
     let pool = await db.connect(process.env.CONNECTION_STRING);
-    let data = await pool.query('SELECT TEN_BACSI FROM BACSI');
+    let data = await pool.query('SELECT TEN_KHOA FROM KHOA');
     console.log(data);
     return res.render('book_table.ejs', {
-        data: data
+        data: data.recordset.map(obj => obj.TEN_KHOA)
     });
 }
 
