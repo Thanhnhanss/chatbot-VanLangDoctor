@@ -100,7 +100,12 @@ function handleClickButtonBookTable() {
 }
 
 $(document).ready(() => {
-    $('.dropdown-menu .dropdown-item').click(function (e) {
+    $('#time .dropdown-menu .dropdown-item').click(function (e) {
+        e.preventDefault();
+        $('.dropdown > button').html($(this).text());
+    });
+
+    $('#faculty .dropdown-menu .dropdown-item').click(function (e) {
         e.preventDefault();
         $('.dropdown > button').html($(this).text());
     });
