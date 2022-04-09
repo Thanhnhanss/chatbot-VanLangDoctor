@@ -47,6 +47,52 @@
                     <input type="text" id="phoneNumber" class="form-control" placeholder="Số điện thoại...">
                     <div class="invalid-feedback">Số điện thoại không hợp lệ.</div>
                 </div>
+                <div class="form-group">
+                    <label for="faculty"> Khoa (<span style="color: red">*</span>):</label>
+                    <!-- <input /> -->
+                    <div class="dropdown" id="faculty">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="trigger-faculty"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="width: 100% !important">
+                            Chọn khoa
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="trigger-faculty">
+                            <a class="dropdown-item" href="#">A</a>
+                            <a class="dropdown-item" href="#">B</a>
+                            <a class="dropdown-item" href="#">After divider action</a>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">Vui lòng chọn khoa.</div>
+                </div>
+                <div class="form-group">
+                    <label for="time">Khung giờ (<span style="color: red">*</span>):</label>
+                    <div class="dropdown" id="time">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="trigger-time"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="width: 100% !important">
+                            Chọn khung giờ
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="trigger-time">
+                            <a class="dropdown-item" href="#">Sáng thứ hai</a>
+                            <a class="dropdown-item" href="#">Chiều thứ hai</a>
+                            <a class="dropdown-item" href="#">Sáng thứ ba</a>
+                            <a class="dropdown-item" href="#">Chiều thứ ba</a>
+                            <a class="dropdown-item" href="#">Sáng thứ tư</a>
+                            <a class="dropdown-item" href="#">Chiều thứ tư</a>
+                            <a class="dropdown-item" href="#">Sáng thứ năm</a>
+                            <a class="dropdown-item" href="#">Chiều thứ năm</a>
+                            <a class="dropdown-item" href="#">Sáng thứ sáu</a>
+                            <a class="dropdown-item" href="#">Chiều thứ sáu</a>
+                            <a class="dropdown-item" href="#">Sáng thứ bảy</a>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">Khung giờ không hợp lệ.</div>
+                </div>
+                <div class="form-group">
+                    <label for="doctor">Bác sĩ (<span style="color: red">*</span>):</label>
+                    <input type="text" id="doctor" class="form-control" placeholder="Số điện thoại...">
+                    <div class="invalid-feedback">Vui lòng chọn bác sĩ.</div>
+                </div>
                 <button class="btn btn-primary" id="btnBookTable"> ĐẶT LỊCH </button>
             </div>
 

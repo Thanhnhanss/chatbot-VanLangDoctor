@@ -1,4 +1,6 @@
 require("dotenv").config();
+
+const db = require('mssql');
 import request from "request";
 import {
     Wit
@@ -360,8 +362,13 @@ let setupPresistentMenu = async (req, res) => {
     return res.send("Setup  Presistent menu success!");
 }
 
-let handleBookTable = (req, res) => {
-    return res.render('book_table.ejs');
+let handleBookTable = async (req, res) => {
+    let pool = await db.connect(process.env.CONNECTION_STRING);
+    let data = await pool.query('SELECT TEN_BACSI FROM BACSI');
+    console.log(data);
+    return res.render('book_table.ejs', {
+        data: data
+    });
 }
 
 let handlePostBookTable = async (req, res) => {

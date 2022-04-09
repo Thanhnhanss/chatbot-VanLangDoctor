@@ -33,22 +33,39 @@ function validateInputFields() {
 
     let email = $("#email");
     let phoneNumber = $("#phoneNumber");
+    let faculty = $('#faculty');
+    let time = $('#time');
+    let flag = false;
 
     if (!email.val().match(EMAIL_REG)) {
         email.addClass("is-invalid");
-        return true;
+        flag = true;
     } else {
         email.removeClass("is-invalid");
     }
 
     if (phoneNumber.val() === "") {
         phoneNumber.addClass("is-invalid");
-        return true;
+        flag = true;
     } else {
         phoneNumber.removeClass("is-invalid");
     }
 
-    return false;
+    if (faculty.children('button').html().includes('Chọn khoa')) {
+        faculty.addClass("is-invalid");
+        flag = true;
+    } else {
+        faculty.removeClass("is-invalid");
+    }
+
+    if (time.children('button').html().includes('Chọn khung giờ')) {
+        time.addClass("is-invalid");
+        flag = true;
+    } else {
+        faculty.removeClass("is-invalid");
+    }
+
+    return flag;
 }
 
 
@@ -81,3 +98,10 @@ function handleClickButtonBookTable() {
         }
     });
 }
+
+$(document).ready(() => {
+    $('.dropdown-menu .dropdown-item').click(function (e) {
+        e.preventDefault();
+        $('.dropdown > button').html($(this).text());
+    });
+});
