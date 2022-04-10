@@ -72,7 +72,7 @@ function handleClickButtonFeedBackTable() {
             email: $("#email").val(),
             phoneNumber: $("#phoneNumber").val(),
             content: $("content").val(),
-            satisfied: $('#satisfied > button').html()
+            satisfied: $('#satisfied').val()
         };
 
         if (!check) {
@@ -95,9 +95,9 @@ function handleClickButtonFeedBackTable() {
     });
 }
 
-$(document).ready(() => {
-    $('#satisfied .dropdown-menu .dropdown-item').click(function (e) {
-        e.preventDefault();
-        $('#satisfied > button').html($(this).text());
-    });
-});
+// $(document).ready(() => {
+//     $('#satisfied .dropdown-menu .dropdown-item').click(function (e) {
+//         e.preventDefault();
+//         $('#satisfied > button').html($(this).text());
+//     });
+// });
