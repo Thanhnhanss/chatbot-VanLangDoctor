@@ -181,10 +181,12 @@ let sendGetstartedTemplate = () => {
                             "payload": "THEM_DV",
                         },
                         {
-                            "type": "postback",
-                            "title": "HƯỚNG DẪN",
-                            "payload": "HUONG_DAN",
-                        }
+                            "type": "web_url",
+                            "url": `${process.env.URL_FEEDBACK}`,
+                            "title": "ĐÁNH GIÁ",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": true //false: open the webview in new tab
+                        },
                     ],
                 }]
             }
@@ -275,60 +277,60 @@ let handleTUVAN_ONL = (sender_psid) => {
 }
 
 let getTuvan_ONL = () => {
-    let response = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                        "title": "Tư vấn sức khoẻ online",
-                        "subtitle": "Chúng tôi luôn sẵn sàng lắng nghe những chia sẻ về sức khoẻ của bạn",
-                        "image_url": IMAGE_GET_STARTED4,
-                        "buttons": [{
-                            "type": "postback",
-                            "title": "BẮT ĐẦU CUỘC TRÒ CHUYỆN",
-                            "payload": "TUVAN_ONL",
-                        }, ],
-                    },
-                    {
-                        "title": "Chuẩn đoán bệnh online",
-                        "subtitle": "Dựa vào những triệu chứng mà bạn chia sẻ chúng tôi sẽ đưa ra những kết luận phù hợp nhất",
-                        "image_url": IMAGE_GET_STARTED5,
-                        "buttons": [{
-                            "type": "postback",
-                            "title": "CHI TIẾT",
-                            "payload": "CHUAN_DOAN",
-                        }, ],
-                    },
-                    {
-                        "title": "Đặt lịch tại phòng khám VLMC",
-                        "subtitle": "Là cơ sở y tế mới nhất với các trang thiết bị hiện đại do trường Đại học Văn Lang thành lập năm 2021.",
-                        "image_url": IMAGE_GET_STARTED6,
-                        "buttons": [{
+    // let response = {
+    //     "attachment": {
+    //         "type": "template",
+    //         "payload": {
+    //             "template_type": "generic",
+    //             "elements": [{
+    //                     "title": "Tư vấn sức khoẻ online",
+    //                     "subtitle": "Chúng tôi luôn sẵn sàng lắng nghe những chia sẻ về sức khoẻ của bạn",
+    //                     "image_url": IMAGE_GET_STARTED4,
+    //                     "buttons": [{
+    //                         "type": "postback",
+    //                         "title": "BẮT ĐẦU CUỘC TRÒ CHUYỆN",
+    //                         "payload": "TUVAN_ONL",
+    //                     }, ],
+    //                 },
+    //                 {
+    //                     "title": "Chuẩn đoán bệnh online",
+    //                     "subtitle": "Dựa vào những triệu chứng mà bạn chia sẻ chúng tôi sẽ đưa ra những kết luận phù hợp nhất",
+    //                     "image_url": IMAGE_GET_STARTED5,
+    //                     "buttons": [{
+    //                         "type": "postback",
+    //                         "title": "CHI TIẾT",
+    //                         "payload": "CHUAN_DOAN",
+    //                     }, ],
+    //                 },
+    //                 {
+    //                     "title": "Đặt lịch tại phòng khám VLMC",
+    //                     "subtitle": "Là cơ sở y tế mới nhất với các trang thiết bị hiện đại do trường Đại học Văn Lang thành lập năm 2021.",
+    //                     "image_url": IMAGE_GET_STARTED6,
+    //                     "buttons": [{
 
-                            "type": "web_url",
-                            "url": `${process.env.URL_DAT_BAN}`,
-                            "title": "ĐẶT LỊCH",
-                            "webview_height_ratio": "tall",
-                            "messenger_extensions": true //false: open the webview in new tab
-                        }, ],
-                    },
-                    {
-                        "title": "Quay lại lúc đầu",
-                        "subtitle": "Trong tình hình dịch bệnh covid 19 diễn biến phức tạp, tư vấn onl đem lại cho bạn sự an tâm tuyệt đối",
-                        "image_url": IMAGE_GET_STARTED7,
-                        "buttons": [{
-                            "type": "postback",
-                            "title": "TRỞ LẠI",
-                            "payload": "QUAY_LAI",
-                        }, ],
-                    },
+    //                         "type": "web_url",
+    //                         "url": `${process.env.URL_DAT_BAN}`,
+    //                         "title": "ĐẶT LỊCH",
+    //                         "webview_height_ratio": "tall",
+    //                         "messenger_extensions": true //false: open the webview in new tab
+    //                     }, ],
+    //                 },
+    //                 {
+    //                     "title": "Quay lại lúc đầu",
+    //                     "subtitle": "Trong tình hình dịch bệnh covid 19 diễn biến phức tạp, tư vấn onl đem lại cho bạn sự an tâm tuyệt đối",
+    //                     "image_url": IMAGE_GET_STARTED7,
+    //                     "buttons": [{
+    //                         "type": "postback",
+    //                         "title": "TRỞ LẠI",
+    //                         "payload": "QUAY_LAI",
+    //                     }, ],
+    //                 },
 
-                ]
-            }
-        }
-    }
-    return response;
+    //             ]
+    //         }
+    //     }
+    // }
+    // return response;
 }
 
 let handleQUAY_LAI = async (sender_psid) => {
@@ -409,9 +411,18 @@ let getNUTBAM_CHITIET = () => {
                 "template_type": "button",
                 "text": "What do you want to do next?",
                 "buttons": [{
-                        "type": "postback",
+                        "type": "web_url",
+                        "url": `${process.env.URL_DAT_BAN}`,
                         "title": "ĐẶT LỊCH",
-                        "payload": "DAT_LICH",
+                        "webview_height_ratio": "tall",
+                        "messenger_extensions": true //false: open the webview in new tab
+                    },
+                    {
+                        "type": "web_url",
+                        "url": `${process.env.URL_FEEDBACK}`,
+                        "title": "ĐÁNH GIÁ",
+                        "webview_height_ratio": "tall",
+                        "messenger_extensions": true //false: open the webview in new tab
                     },
                     {
                         "type": "postback",
@@ -453,6 +464,6 @@ module.exports = {
     handleCHI_TIET: handleCHI_TIET,
     callSendAPI: callSendAPI,
     getUserName: getUserName,
-    
+
 
 };

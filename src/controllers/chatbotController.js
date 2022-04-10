@@ -42,11 +42,11 @@ let writeDataToGoogleSheet_F = async (data1) => {
     });
 
     await doc.loadInfo(); // loads document properties and worksheets
-    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+    const sheet1 = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 
 
     //append rows
-    await sheet.addRow({
+    await sheet1.addRow({
         "Tên Facebook": data1.username,
         "Email": data1.email,
         "Số điện thoại": data1.phoneNumber,
@@ -457,11 +457,11 @@ let handlePostBookTable = async (req, res) => {
 }
 
 
-let handleFeedBack = async (req, res) => {
+let handleFeedBack = (req, res) => {
     console.log(data1);
     return res.render('feedback.ejs');
 }
-let handlePostFeedback = async (req, res) =>{
+let handlePostFeedback = async (req, res) => {
     console.log('Begin handle post feedback table');
     try {
         let username = await chatbotService.getUserName(req.body.psid);
