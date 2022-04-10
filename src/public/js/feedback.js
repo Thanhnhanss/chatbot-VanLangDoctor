@@ -66,13 +66,13 @@ function validateInputFields() {
 function handleClickButtonFeedBackTable() {
     $("#btnFeedbackTable").on("click", function (e) {
         let check = validateInputFields(); //return true or false
-        let data = {
+        let data1 = {
             psid: $("#psid").val(),
             customerName: $("#customerName").val(),
             email: $("#email").val(),
             phoneNumber: $("#phoneNumber").val(),
             content: $("content").val(),
-            satisfied: $('#satisfied').val()
+            satisfied: $('#satisfied > button').html()
         };
 
         if (!check) {
