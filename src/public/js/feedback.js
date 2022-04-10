@@ -72,7 +72,7 @@ function handleClickButtonFeedBackTable() {
             email: $("#email").val(),
             phoneNumber: $("#phoneNumber").val(),
             content: $("content").val(),
-            satisfied: $('#satisfied > button').html()
+            satis fied: $('#satisfied > button').html()
         };
 
         if (!check) {
