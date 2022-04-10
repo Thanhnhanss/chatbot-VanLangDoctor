@@ -95,9 +95,9 @@ function handleClickButtonFeedBackTable() {
     });
 }
 
-// $(document).ready(() => {
-//     $('#satisfied .dropdown-menu .dropdown-item').click(function (e) {
-//         e.preventDefault();
-//         $('#satisfied > button').html($(this).text());
-//     });
-// });
+$(document).ready(() => {
+    $('#satisfied .dropdown-menu .dropdown-item').click(function (e) {
+        e.preventDefault();
+        $('#satisfied > button').html($(this).text());
+    });
+});
