@@ -458,8 +458,8 @@ let handlePostBookTable = async (req, res) => {
 
 
 let handleFeedBack = (req, res) => {
-    console.log(data1);
-    return res.render('feedback.ejs');
+    // console.log(data1);
+    return res.render('feedback.js');
 }
 let handlePostFeedback = async (req, res) => {
     console.log('Begin handle post feedback table');
