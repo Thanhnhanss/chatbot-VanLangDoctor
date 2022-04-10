@@ -18,6 +18,8 @@ let initWebRoutes = (app) => {
     router.get("/book_table", chatbotController.handleBookTable);
     router.post("/reserve-table-ajax", chatbotController.handlePostBookTable);
 
+    router.get("/feedback", chatbotController.handleFeedBack);
+    router.post("/feedback-ajax", chatbotController.handlePostFeedback);
 
 
     return app.use("/", router);

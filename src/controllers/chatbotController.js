@@ -18,6 +18,7 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const MY_TOKEN = process.env.MY_TOKEN;
 const SPEADSHEET_ID = process.env.SPEADSHEET_ID;
+const SPEADSHEET_ID_FEEDBACK = process.env.SPEADSHEET_ID_FEEDBACK;
 const GOOGLE_SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY;
 
@@ -25,6 +26,36 @@ const client = new Wit({
     accessToken: MY_TOKEN
 });
 
+let writeDataToGoogleSheet_F = async (data1) => {
+
+    let currentDate = new Date();
+    const format = "HH:mm DD/MM/YYYY"
+    let formartedDate = moment(currentDate).format(format);
+
+    //
+    const doc = new GoogleSpreadsheet(SPEADSHEET_ID_FEEDBACK);
+
+    // Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
+    await doc.useServiceAccountAuth({
+        client_email: JSON.parse(`"${GOOGLE_SERVICE_ACCOUNT_EMAIL}"`),
+        private_key: JSON.parse(`"${  GOOGLE_PRIVATE_KEY}"`),
+    });
+
+    await doc.loadInfo(); // loads document properties and worksheets
+    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+
+
+    //append rows
+    await sheet.addRow({
+        "Tên Facebook": data1.username,
+        "Email": data1.email,
+        "Số điện thoại": data1.phoneNumber,
+        "Thời gian": formartedDate,
+        "Tên khách hàng": data1.customerName,
+        "Góp ý": data1.content,
+        "Đánh giá": data1.satisfied,
+    });
+}
 let writeDataToGoogleSheet = async (data) => {
 
     let currentDate = new Date();
@@ -50,7 +81,9 @@ let writeDataToGoogleSheet = async (data) => {
         "Email": data.email,
         "Số điện thoại": data.phoneNumber,
         "Thời gian": formartedDate,
-        "Tên khách hàng": data.customerName
+        "Tên khách hàng": data.customerName,
+        "Khoa": data.faculty,
+        "Khung giờ": data.time,
     });
 }
 
@@ -424,6 +457,62 @@ let handlePostBookTable = async (req, res) => {
 }
 
 
+let handleFeedBack = async (req, res) => {
+    // console.log(data);
+    return res.render('feedback.ejs');
+}
+let handlePostFeedback = async (req, res) =>{
+    console.log('Begin handle post feedback table');
+    try {
+        let username = await chatbotService.getUserName(req.body.psid);
+
+        //write data to google sheet
+        let data1 = {
+            username: username,
+            email: req.body.email,
+            phoneNumber: `'${req.body.phoneNumber}`,
+            customerName: req.body.customerName,
+            content: req.body.content,
+            satisfied: req.body.satisfied
+        }
+
+        await writeDataToGoogleSheet_F(data1);
+
+        console.log(data1);
+
+        let customerName = "";
+        if (req.body.customerName === "") {
+            customerName = username;
+        } else customerName = req.body.customerName;
+
+        // I demo response with sample text
+        // you can check database for customer order's status
+
+        let response2 = {
+            "text": `--- PHẢN HỒI CỦA KHÁCH HÀNG ---
+            \nHỌ VÀ TÊN: ${customerName}
+            \nEMAIL: ${req.body.email}
+            \nSỐ ĐIỆN THOẠI: ${req.body.phoneNumber}
+            \nGÓP Ý: ${req.body.content}
+            \nĐÁNH GIÁ: ${req.body.satisfied}
+            `
+        };
+
+        await chatbotService.callSendAPI(req.body.psid, response2);
+
+        return res.status(200).json({
+            message: "ok"
+        });
+
+    } catch (e) {
+        console.log('Lỗi post feedback table: ', e)
+        return res.status(500).json({
+            message: "Server error"
+        });
+    }
+
+}
+
 module.exports = {
     getHomepage: getHomepage, //key : value
     postWebhook: postWebhook,
@@ -432,6 +521,7 @@ module.exports = {
     setupPresistentMenu: setupPresistentMenu,
     handleBookTable: handleBookTable,
     handlePostBookTable: handlePostBookTable,
-
+    handleFeedBack: handleFeedBack,
+    handlePostFeedback: handlePostFeedback,
 
 }
