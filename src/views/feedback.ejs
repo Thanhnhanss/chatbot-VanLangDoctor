@@ -21,7 +21,7 @@
     <!-- Load custom Javascript and CSS-->
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/js/book_table.js"></script>
+    <script src="/js/feedback.js"></script>
 </head>
 
 
@@ -48,16 +48,16 @@
                     <div class="invalid-feedback">Số điện thoại không hợp lệ.</div>
                 </div>
                 <div class="form-group">
-                    <label for="content">Góp ý (<span style="color: red;">*</span>):</label>
+                    <label for="content">Góp ý</label>
                     <input type="text" id="content" class="form-control" placeholder="Chia sẻ cảm nghĩ của bạn...">
                 </div>
                 <div class="form-group">
-                    <label for="satisfied">Khung giờ (<span style="color: red">*</span>):</label>
+                    <label for="satisfied">Đánh giá (<span style="color: red">*</span>):</label>
                     <div class="dropdown" id="time">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="satisfied-feedback"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                             style="width: 100% !important">
-                            Chọn khung giờ
+                            Chọn đánh giá
                         </button>
                         <div class="dropdown-menu" aria-labelledby="satisfied-feedback">
                             <a class="dropdown-item" href="#">Chưa hài lòng</a>
@@ -70,7 +70,9 @@
                 </div>
                 <button class="btn btn-primary" id="btnFeedbackTable"> ĐÁNH GIÁ </button>
             </div>
+
         </div>
+
         <footer>
             <div class="text-center">
                 <div class="">
