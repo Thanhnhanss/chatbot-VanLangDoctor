@@ -458,7 +458,7 @@ let handlePostBookTable = async (req, res) => {
 
 
 let handleFeedBack = async (req, res) => {
-    // console.log(data);
+    console.log(data1);
     return res.render('feedback.ejs');
 }
 let handlePostFeedback = async (req, res) =>{
