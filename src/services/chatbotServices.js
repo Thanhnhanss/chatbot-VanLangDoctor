@@ -231,44 +231,31 @@ let getThemDV = () => {
                                 "title": "TƯ VẤN ONLINE",
                                 "payload": "TUVAN_ONL",
                             },
-                            {
-                                "type": "web_url",
-                                "url": `${process.env.URL_FEEDBACK}`,
-                                "title": "ĐÁNH GIÁ",
-                                "webview_height_ratio": "tall",
-                                "messenger_extensions": true //false: open the webview in new tab
-                            },
-                            {
-                                "type": "postback",
-
-                                "title": "GIỚI THIỆU",
-                                "payload": "CHI_TIET",
-                            },
                         ],
                     },
-                    // {
-                    //     "title": "Dịch vụ khám bệnh của VanLangDoctor",
-                    //     "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
-                    //     "image_url": IMAGE_GET_STARTED2,
-                    //     "buttons": [{
-                    //         "type": "web_url",
-                    //         "url": `${process.env.URL_DAT_BAN}`,
-                    //         "title": "ĐẶT LỊCH",
-                    //         "webview_height_ratio": "tall",
-                    //         "messenger_extensions": true //false: open the webview in new tab
-                    //     }, ],
-                    // // },
-                    // {
-                    //     "title": "Không gian phòng khám của Bác sĩ Văn Lang",
-                    //     "subtitle": "Cung cấp dịch vụ chăm sóc sức khỏe hiện đại – tiên tiến nhất, chúng tôi cam kết mang đến cho bạn và gia đình phương pháp tiếp cận toàn diện cho một cuộc sống khỏe mạnh hơn.",
-                    //     "image_url": IMAGE_GET_STARTED3,
-                    //     "buttons": [{
-                    //         "type": "postback",
+                    {
+                        "title": "Dịch vụ khám bệnh của VanLangDoctor",
+                        "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
+                        "image_url": IMAGE_GET_STARTED2,
+                        "buttons": [{
+                            "type": "web_url",
+                            "url": `${process.env.URL_DAT_BAN}`,
+                            "title": "ĐẶT LỊCH",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": true //false: open the webview in new tab
+                        }, ],
+                    },
+                    {
+                        "title": "Không gian phòng khám của Bác sĩ Văn Lang",
+                        "subtitle": "Cung cấp dịch vụ chăm sóc sức khỏe hiện đại – tiên tiến nhất, chúng tôi cam kết mang đến cho bạn và gia đình phương pháp tiếp cận toàn diện cho một cuộc sống khỏe mạnh hơn.",
+                        "image_url": IMAGE_GET_STARTED3,
+                        "buttons": [{
+                            "type": "postback",
 
-                    //         "title": "GIỚI THIỆU",
-                    //         "payload": "CHI_TIET",
-                    //     }, ],
-                    // },
+                            "title": "GIỚI THIỆU",
+                            "payload": "CHI_TIET",
+                        }, ],
+                    },
 
                 ]
             }
