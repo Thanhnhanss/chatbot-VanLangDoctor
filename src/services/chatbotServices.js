@@ -464,6 +464,4 @@ module.exports = {
     handleCHI_TIET: handleCHI_TIET,
     callSendAPI: callSendAPI,
     getUserName: getUserName,
-
-
 };

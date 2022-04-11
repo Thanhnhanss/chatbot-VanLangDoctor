@@ -33,8 +33,6 @@ function validateInputFields() {
 
     let email = $("#email");
     let phoneNumber = $("#phoneNumber");
-    let faculty = $('#faculty');
-    let time = $('#time');
     let flag = false;
     let satisfied = $('#satisfied');
 
@@ -56,7 +54,7 @@ function validateInputFields() {
         satisfied.addClass("is-invalid");
         flag = true;
     } else {
-        faculty.removeClass("is-invalid");
+        satisfied.removeClass("is-invalid");
     }
 
     return flag;
@@ -71,8 +69,8 @@ function handleClickButtonFeedBackTable() {
             customerName: $("#customerName").val(),
             email: $("#email").val(),
             phoneNumber: $("#phoneNumber").val(),
-            content: $("content").val(),
-            satis fied: $('#satisfied > button').html()
+            content: $("#content").val(),
+            satisfied: $('#satisfied > button').html()
         };
 
         if (!check) {
