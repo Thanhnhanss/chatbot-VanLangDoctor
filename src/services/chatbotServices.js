@@ -233,18 +233,13 @@ let getThemDV = () => {
                             },
                         ],
                     },
-                    // {
-                    //     "title": "Dịch vụ khám bệnh của VanLangDoctor",
-                    //     "subtitle": "Bắt đầu mở cửa phòng khám vào lúc 6h30| đóng lúc 16h30 ",
-                    //     "image_url": IMAGE_GET_STARTED2,
-                    //     "buttons": [{
-                    //         "type": "web_url",
-                    //         "url": `${process.env.URL_DAT_BAN}`,
-                    //         "title": "ĐẶT LỊCH",
-                    //         "webview_height_ratio": "tall",
-                    //         "messenger_extensions": true //false: open the webview in new tab
-                    //     }, ],
-                    // },
+                    {
+                        "type": "web_url",
+                        "url": `${process.env.URL_FEEDBACK}`,
+                        "title": "ĐÁNH GIÁ",
+                        "webview_height_ratio": "tall",
+                        "messenger_extensions": true //false: open the webview in new tab
+                    },
                     {
                         "title": "Không gian phòng khám của Bác sĩ Văn Lang",
                         "subtitle": "Cung cấp dịch vụ chăm sóc sức khỏe hiện đại – tiên tiến nhất, chúng tôi cam kết mang đến cho bạn và gia đình phương pháp tiếp cận toàn diện cho một cuộc sống khỏe mạnh hơn.",
@@ -253,7 +248,7 @@ let getThemDV = () => {
                             "type": "postback",
 
                             "title": "GIỚI THIỆU",
-                            "payload": "CHI_TIET",
+                            "payload": "CHUAN_DOAN",
                         }, ],
                     },
 
