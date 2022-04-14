@@ -239,8 +239,8 @@ let getThemDV = () => {
                         "image_url": IMAGE_GET_STARTED2,
                         "buttons": [{
                             "type": "web_url",
-                            "url": `${process.env.URL_DAT_BAN}`,
-                            "title": "ĐẶT LỊCH",
+                            "url": `${process.env.URL_FEEDBACK}`,
+                            "title": "ĐÁNH GIÁ",
                             "webview_height_ratio": "tall",
                             "messenger_extensions": true //false: open the webview in new tab
                         }, ],
@@ -253,7 +253,7 @@ let getThemDV = () => {
                             "type": "postback",
 
                             "title": "GIỚI THIỆU",
-                            "payload": "CHI_TIET",
+                            "payload": "CHUAN_DOAN",
                         }, ],
                     },
 

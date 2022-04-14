@@ -199,20 +199,20 @@ async function handleMessage(sender_psid, received_message) {
     // }
 
     let response;
+    let responses = [];
     let username = await getUserName(sender_psid);
     // Checks if the message contains text
     if (received_message.text) {
         if (received_message.text == 'Tôi bị sốt cao')
+        response.appand({text:'hiiii'
+        });
             response = {
                 "text": "bạn đã test covid chưa?"
             }
-
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
-
         else
             response = {
-
                 "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
             }
     } else if (received_message.attachments) {
