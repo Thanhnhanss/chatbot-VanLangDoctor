@@ -230,15 +230,15 @@ async function handleMessage(sender_psid, received_message) {
                 "type": "template",
                 "payload": {
                     "template_type": "button",
-                    "text": "Vui lòng đặt lịch khám",
+                    "text": "Vui lòng chọn",
                     "buttons": [{
                             "type": "postback",
-                            "title": "Đặt lịch",
-                            "payload": "yes",
+                            "title": "TRỞ LẠI",
+                            "payload": "QUAY_LAI"
                         },
                         {
                             "type": "postback",
-                            "title": "Không cần",
+                            "title": "Không",
                             "payload": "no",
                         }
                     ],
