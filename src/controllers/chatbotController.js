@@ -213,14 +213,14 @@ async function handleMessage(sender_psid, received_message) {
             }
         } else if (received_message.text == 'Không' || received_message.text == 'Hông' || received_message.text == 'Ko' || received_message.text == 'Tôi âm tính') {
             response = {
-                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé"
+                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục tư vấn cùng bác sĩ trực tuyến nhé"
             }
         }
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         else
             response = {
-                "text": `Chào bạn ${username} bạn đã gửi cho chúng tôi thông tin ${received_message.text}" chúng tôi đã tiếp nhận và sẽ chuyển hướng đoạn tin nhắn tự động này cho bác sĩ trực tuyến, bạn vui lòng đợi trong ít phút.`
+                "text": `Chào bạn ${username} bạn đã gửi yêu cầu tư vấn trực tuyến. Chúng tôi đã nhận thông tin và sẽ chuyển hướng đoạn tin nhắn tự động này cho bác sĩ trực tuyến, bạn vui lòng đợi trong ít phút.`
             }
     } else if (received_message.attachments) {
         // Get the URL of the message attachment
