@@ -54,6 +54,7 @@ let writeDataToGoogleSheet_F = async (data1) => {
         "Tên khách hàng": data1.customerName,
         "Góp ý": data1.content,
         "Đánh giá": data1.satisfied,
+        "Số sao": data1.star
     });
 }
 let writeDataToGoogleSheet = async (data) => {
@@ -485,7 +486,7 @@ let handlePostFeedback = async (req, res) => {
     console.log('Begin handle post feedback table');
     try {
         let username = await chatbotService.getUserName(req.body.psid);
-
+        let stars = ['Rất không hài lòng ⭐', 'Chưa hài lòng ⭐⭐', 'Bình thường⭐⭐⭐', 'Hài lòng⭐⭐⭐⭐', 'Rất hài lòng⭐⭐⭐⭐⭐'];
         //write data to google sheet
         let data1 = {
             username: username,
@@ -493,9 +494,10 @@ let handlePostFeedback = async (req, res) => {
             phoneNumber: `'${req.body.phoneNumber}`,
             customerName: req.body.customerName,
             content: req.body.content,
-            satisfied: req.body.satisfied
-        }
-
+            satisfied: req.body.satisfied,
+            star: stars.findIndex(element => element == req.body.satisfied) + 1
+        };
+        
         await writeDataToGoogleSheet_F(data1);
 
         console.log(data1);
