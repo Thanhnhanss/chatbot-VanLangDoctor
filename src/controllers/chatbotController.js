@@ -203,7 +203,7 @@ async function handleMessage(sender_psid, received_message) {
     let username = await getUserName(sender_psid);
     // Checks if the message contains text
     if (received_message.text) {
-        if (received_message.text == 'Tôi bị sốt cao') {
+        if (received_message.text == 'Tôi bị sốt' || received_message.text == 'ho, sốt, khó thở' ||received_message.text == 'Tôi bị sốt, ho , khó thở'||received_message.text == 'bị chảy nước mũi' ||received_message.text == 'Bị ho khạc đờm' || received_message.text == 'Bị đau đầu'|| received_message.text == 'Bị hoa mắt, chóng mặt' || received_message.text == 'Buồn nôn' ) {
             response = {
                 "text": "bạn đã test covid chưa?"
             }
@@ -213,35 +213,43 @@ async function handleMessage(sender_psid, received_message) {
             }
         } else if (received_message.text == 'Không' || received_message.text == 'Hông' || received_message.text == 'Ko' || received_message.text == 'Tôi âm tính') {
             response = {
-                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé"
+                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé",
+                "type": "postback",
+                "title": "ĐẶT LỊCH",
+                "payload": "TUVAN_ONL",
             }
         }
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         else
             response = {
-                // "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
-                "text":``
-
+                "text": `Chào bạn ${username} bạn đã gửi cho chúng tôi thông tin ${received_message.text}" chúng tôi đã tiếp nhận và sẽ chuyển hướng đoạn tin nhắn tự động này cho bác sĩ trực tuyến, bạn vui lòng đợi trong ít phút.`
             }
-    } else if (received_message.buttons) {
+    } else if (received_message.attachments) {
         // Get the URL of the message attachment
-        let bu = received_message.attachments[0].payload.url;
+        let attachment_url = received_message.attachments[0].payload.url;
         response = {
-            "text": "Vui lòng đặt lịch khám",
-            "buttons": [{
-                    "type": "postback",
-                    "title": "Đặt lịch",
-                    "payload": "yes",
-                },
-                {
-                    "type": "postback",
-                    "title": "Không cần",
-                    "payload": "no",
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "Vui lòng đặt lịch khám",
+                    "buttons": [{
+                            "type": "postback",
+                            "title": "Đặt lịch",
+                            "payload": "yes",
+                        },
+                        {
+                            "type": "postback",
+                            "title": "Không cần",
+                            "payload": "no",
+                        }
+                    ],
                 }
-            ],
+            }
         }
     }
+
 
     //Send the response message
     callSendAPI(sender_psid, response);
