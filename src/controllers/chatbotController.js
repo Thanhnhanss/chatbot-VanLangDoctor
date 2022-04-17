@@ -203,7 +203,7 @@ async function handleMessage(sender_psid, received_message) {
     let username = await getUserName(sender_psid);
     // Checks if the message contains text
     if (received_message.text) {
-        if (received_message.text == 'Tôi bị sốt' || received_message.text == 'ho, sốt, khó thở' ||received_message.text == 'Tôi bị sốt, ho , khó thở'||received_message.text == 'bị chảy nước mũi' ||received_message.text == 'Bị ho khạc đờm' || received_message.text == 'Bị đau đầu'|| received_message.text == 'Bị hoa mắt, chóng mặt' || received_message.text == 'Buồn nôn' ) {
+        if (received_message.text == 'Tôi bị sốt' || received_message.text == 'ho, sốt, khó thở' || received_message.text == 'Tôi bị sốt, ho , khó thở' || received_message.text == 'bị chảy nước mũi' || received_message.text == 'Bị ho khạc đờm' || received_message.text == 'Bị đau đầu' || received_message.text == 'Bị hoa mắt, chóng mặt' || received_message.text == 'Buồn nôn') {
             response = {
                 "text": "bạn đã test covid chưa?"
             }
@@ -213,10 +213,7 @@ async function handleMessage(sender_psid, received_message) {
             }
         } else if (received_message.text == 'Không' || received_message.text == 'Hông' || received_message.text == 'Ko' || received_message.text == 'Tôi âm tính') {
             response = {
-                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé",
-                "type": "postback",
-                "title": "ĐẶT LỊCH",
-                "payload": "TUVAN_ONL",
+                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé"
             }
         }
         // Create the payload for a basic text message, which
