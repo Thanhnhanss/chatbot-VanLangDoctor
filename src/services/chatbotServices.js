@@ -280,28 +280,28 @@ let getTuvan_ONL = () => {
     let response = {
         "text": "Bạn đang gặp phải vấn đề sức khoẻ, hãy nói triệu chứng để đội ngũ bác sĩ tư vấn trực tuyến cho bạn nhanh chóng"
     }
-    let response1 = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "Xin chào bạn đến với phòng khám của Bác sĩ Văn Lang",
-                    "subtitle": "Dưới đây là các lựa chọn",
-                    "image_url": IMAGE_GET_STARTED,
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": `${process.env.URL_DAT_BAN}`,
-                        "title": "ĐẶT LỊCH",
-                        "webview_height_ratio": "tall",
-                        "messenger_extensions": true //false: open the webview in new tab
-                    }]
-                }]
-            }
-        }
+    // let response1 = {
+    //     "attachment": {
+    //         "type": "template",
+    //         "payload": {
+    //             "template_type": "generic",
+    //             "elements": [{
+    //                 "title": "Xin chào bạn đến với phòng khám của Bác sĩ Văn Lang",
+    //                 "subtitle": "Dưới đây là các lựa chọn",
+    //                 "image_url": IMAGE_GET_STARTED,
+    //                 "buttons": [{
+    //                     "type": "web_url",
+    //                     "url": `${process.env.URL_DAT_BAN}`,
+    //                     "title": "ĐẶT LỊCH",
+    //                     "webview_height_ratio": "tall",
+    //                     "messenger_extensions": true //false: open the webview in new tab
+    //                 }]
+    //             }]
+    //         }
+    //     }
 
-    }
-    return response, response1;
+    // }
+    return response;
 }
 
 let handleQUAY_LAI = async (sender_psid) => {
