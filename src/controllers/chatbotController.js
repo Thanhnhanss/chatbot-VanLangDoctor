@@ -204,8 +204,6 @@ async function handleMessage(sender_psid, received_message) {
     // Checks if the message contains text
     if (received_message.text) {
         if (received_message.text == 'Tôi bị sốt cao')
-        response.appand({text:'hiiii'
-        });
             response = {
                 "text": "bạn đã test covid chưa?"
             }
