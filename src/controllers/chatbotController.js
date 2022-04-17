@@ -213,30 +213,7 @@ async function handleMessage(sender_psid, received_message) {
             }
         } else if (received_message.text == 'Không' || received_message.text == 'Hông' || received_message.text == 'Ko' || received_message.text == 'Tôi âm tính') {
             response = {
-                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé ",
-
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "Đây là thông tin của bạn phải không?",
-                            "subtitle": "Tap a button to answer.",
-                            "image_url": attachment_url,
-                            "buttons": [{
-                                    "type": "postback",
-                                    "title": "Đúng rồi",
-                                    "payload": "yes",
-                                },
-                                {
-                                    "type": "postback",
-                                    "title": "Không phải",
-                                    "payload": "no",
-                                }
-                            ],
-                        }]
-                    }
-                }
+                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé"
             }
         }
         // Create the payload for a basic text message, which
@@ -256,12 +233,12 @@ async function handleMessage(sender_psid, received_message) {
                     "text": "Vui lòng đặt lịch khám",
                     "buttons": [{
                             "type": "postback",
-                            "title": "Đúng rồi",
+                            "title": "Đặt lịch",
                             "payload": "yes",
                         },
                         {
                             "type": "postback",
-                            "title": "Không phải",
+                            "title": "Không cần",
                             "payload": "no",
                         }
                     ],
@@ -286,12 +263,29 @@ async function handlePostback(sender_psid, received_postback) {
     switch (payload) {
         case 'yes':
             response = {
-                "text": "thanks!"
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": "Xin chào bạn đến với phòng khám của Bác sĩ Văn Lang",
+                            "subtitle": "Dưới đây là các lựa chọn",
+                            "image_url": IMAGE_GET_STARTED9,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": `${process.env.URL_DAT_BAN}`,
+                                "title": "ĐẶT LỊCH",
+                                "webview_height_ratio": "tall",
+                                "messenger_extensions": true //false: open the webview in new tab
+                            }]
+                        }]
+                    }
+                }
             }
             break;
         case 'no':
             response = {
-                "text": "Oops, try sending another image."
+                "text": "Cảm ơn bạn đã quan tâm đến dịch vụ của chúng tôi, cảm ơn quý khách!"
             }
             break;
         case "RESTART_BOT":
