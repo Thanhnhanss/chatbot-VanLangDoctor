@@ -221,18 +221,16 @@ async function handleMessage(sender_psid, received_message) {
                         "template_type": "generic",
                         "elements": [{
                             "title": "Đây là thông tin của bạn phải không?",
-                            "subtitle": "Chọn câu trả lời của bạn",
-                            "image_url": IMAGE_GET_STARTED9,
+                            "subtitle": "Tap a button to answer.",
+                            "image_url": attachment_url,
                             "buttons": [{
-                                    "type": "web_url",
-                                    "url": `${process.env.URL_DAT_BAN}`,
-                                    "title": "ĐẶT LỊCH",
-                                    "webview_height_ratio": "tall",
-                                    "messenger_extensions": true //false: open the webview in new tab
+                                    "type": "postback",
+                                    "title": "Đúng rồi",
+                                    "payload": "yes",
                                 },
                                 {
                                     "type": "postback",
-                                    "title": "Tôi không muốn",
+                                    "title": "Không phải",
                                     "payload": "no",
                                 }
                             ],
@@ -254,27 +252,24 @@ async function handleMessage(sender_psid, received_message) {
             "attachment": {
                 "type": "template",
                 "payload": {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "Đây là thông tin của bạn phải không?",
-                        "subtitle": "Tap a button to answer.",
-                        "image_url": attachment_url,
-                        "buttons": [{
-                                "type": "postback",
-                                "title": "Đúng rồi",
-                                "payload": "yes",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Không phải",
-                                "payload": "no",
-                            }
-                        ],
-                    }]
+                    "template_type": "button",
+                    "text": "Vui lòng đặt lịch khám",
+                    "buttons": [{
+                            "type": "postback",
+                            "title": "Đúng rồi",
+                            "payload": "yes",
+                        },
+                        {
+                            "type": "postback",
+                            "title": "Không phải",
+                            "payload": "no",
+                        }
+                    ],
                 }
             }
         }
     }
+
 
     //Send the response message
     callSendAPI(sender_psid, response);
