@@ -203,10 +203,26 @@ async function handleMessage(sender_psid, received_message) {
     let username = await getUserName(sender_psid);
     // Checks if the message contains text
     if (received_message.text) {
-        if (received_message.text == 'Tôi bị sốt cao')
+        if (received_message.text == 'Tôi bị sốt cao') {
             response = {
                 "text": "bạn đã test covid chưa?"
             }
+        } else if (received_message.text == 'Rồi, tôi đã test' || received_message.text == 'Rồi') {
+            response = {
+                "text": "Kết quả của bạn là dương tính ?"
+            }
+        } else if (received_message.text == 'Không' || received_message.text == 'Hông' || received_message.text == 'Ko' || received_message.text == 'Tôi âm tính') {
+            response = {
+                "text": "Vậy tôi sẽ chuyển hướng cho bạn đến mục đặt lịch khám nhé ",
+                "buttons": [{
+                    "type": "web_url",
+                    "url": `${process.env.URL_DAT_BAN}`,
+                    "title": "ĐẶT LỊCH",
+                    "webview_height_ratio": "tall",
+                    "messenger_extensions": true //false: open the webview in new tab
+                }],
+            }
+        }
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         else
