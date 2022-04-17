@@ -220,33 +220,28 @@ async function handleMessage(sender_psid, received_message) {
         // will be added to the body of our request to the Send API
         else
             response = {
-                "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
+                // "text": `Chào bạn ${username} cảm ơn bạn đã gửi cho chúng tôi tin nhắn : "${received_message.text}" chúng tôi sẽ liên hệ lại cho bạn nhanh chóng!`
+                "text":``
+
             }
-    } else if (received_message.attachments) {
+    } else if (received_message.buttons) {
         // Get the URL of the message attachment
-        let attachment_url = received_message.attachments[0].payload.url;
+        let bu = received_message.attachments[0].payload.url;
         response = {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "button",
-                    "text": "Vui lòng đặt lịch khám",
-                    "buttons": [{
-                            "type": "postback",
-                            "title": "Đặt lịch",
-                            "payload": "yes",
-                        },
-                        {
-                            "type": "postback",
-                            "title": "Không cần",
-                            "payload": "no",
-                        }
-                    ],
+            "text": "Vui lòng đặt lịch khám",
+            "buttons": [{
+                    "type": "postback",
+                    "title": "Đặt lịch",
+                    "payload": "yes",
+                },
+                {
+                    "type": "postback",
+                    "title": "Không cần",
+                    "payload": "no",
                 }
-            }
+            ],
         }
     }
-
 
     //Send the response message
     callSendAPI(sender_psid, response);
