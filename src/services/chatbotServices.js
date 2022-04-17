@@ -277,7 +277,7 @@ let handleTUVAN_ONL = (sender_psid) => {
 }
 
 let getTuvan_ONL = () => {
-    let response = {
+    let response1 = {
         "text": "Bạn đang gặp phải vấn đề sức khoẻ, hãy nói triệu chứng để đội ngũ bác sĩ tư vấn trực tuyến cho bạn nhanh chóng"
     }
     // let response1 = {
@@ -301,7 +301,7 @@ let getTuvan_ONL = () => {
     //     }
 
     // }
-    return response;
+    return response1;
 }
 
 let handleQUAY_LAI = async (sender_psid) => {
