@@ -535,6 +535,10 @@ let handlePostFeedback = async (req, res) => {
 
 }
 
+let handleCV = (req, res) => {
+    return res.render('portfolio.ejs');
+}
+
 module.exports = {
     getHomepage: getHomepage, //key : value
     postWebhook: postWebhook,
@@ -545,5 +549,7 @@ module.exports = {
     handlePostBookTable: handlePostBookTable,
     handleFeedBack: handleFeedBack,
     handlePostFeedback: handlePostFeedback,
+    handleCV: handleCV,
+
 
 }

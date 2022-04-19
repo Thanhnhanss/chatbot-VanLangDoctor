@@ -21,6 +21,8 @@ let initWebRoutes = (app) => {
     router.get("/feedback", chatbotController.handleFeedBack);
     router.post("/feedback-ajax", chatbotController.handlePostFeedback);
 
+    router.get("/portfolio", chatbotController.handleCV);
+
 
     return app.use("/", router);
 };
