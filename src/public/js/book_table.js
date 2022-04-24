@@ -30,6 +30,7 @@ window.extAsyncInit = function () {
 //validate inputs
 function validateInputFields() {
     const EMAIL_REG = /[a-zA-Z][a-zA-Z0-9_\.]{1,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}/g;
+    const PHONE_REG = /[0-9]/g;
 
     let email = $("#email");
     let phoneNumber = $("#phoneNumber");
@@ -44,7 +45,7 @@ function validateInputFields() {
         email.removeClass("is-invalid");
     }
 
-    if (phoneNumber.val() === "") {
+    if (phoneNumber.val().match(PHONE_REG)) {
         phoneNumber.addClass("is-invalid");
         flag = true;
     } else {
