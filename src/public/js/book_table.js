@@ -44,7 +44,7 @@ function validateInputFields() {
         email.removeClass("is-invalid");
     }
 
-    if (phoneNumber.val() === "") {
+    if (phoneNumber.val() === "[0-9]") {
         phoneNumber.addClass("is-invalid");
         flag = true;
     } else {
