@@ -252,7 +252,7 @@ let getThemDV = () => {
                         "buttons": [{
                             "type": "postback",
 
-                            "title": "GIỚI THIỆU",
+                            "title": "CHUẨN ĐOÁN",
                             "payload": "CHUAN_DOAN",
                         }, ],
                     },
