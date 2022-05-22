@@ -139,7 +139,7 @@ let handleGetStarted = (sender_psid) => {
         try {
             let username = await getUserName(sender_psid);
             let response1 = {
-                "text": `Xin chào bạn ${username} đã đến với website Bác sĩ Văn Lang`,
+                "text": `Xin chào bạn đã đến với website Bác sĩ Văn Lang`,
             };
 
             let response2 = sendGetstartedTemplate();
